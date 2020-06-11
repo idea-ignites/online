@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 
-class HeartbeatsDataCollectorServer {
+export class HeartbeatsDataCollectorServer {
 
     private logs = [];
     private app: any;
@@ -119,6 +119,3 @@ class HeartbeatsDataCollectorServer {
         return length0 - length1;
     }
 }
-
-let server = new HeartbeatsDataCollectorServer();
-server.listen(1574);

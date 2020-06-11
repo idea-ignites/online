@@ -3,7 +3,7 @@ import express = require("express");
 import bodyParser = require("body-parser");
 import crypto = require('crypto');
 
-class IdentitiesLogsDataCollectorServer {
+export class IdentitiesLogsDataCollectorServer {
 
     private masterSecret = '';
     private logs = [];
@@ -209,6 +209,3 @@ class IdentitiesLogsDataCollectorServer {
     }
 
 }
-
-let server = new IdentitiesLogsDataCollectorServer();
-server.listen(1572);
