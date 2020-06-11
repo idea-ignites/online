@@ -6,9 +6,18 @@ const bodyParser = require('body-parser');
 export class OnlinesInfoServer {
 
     private app: any;
+    private resources: any;
 
     constructor () {
         this.initialize();
+    }
+
+    public getName() {
+        return "onlinesInfo";
+    }
+
+    public resourcesClaim() {
+        return this.resources;
     }
 
     private initialize() {
@@ -35,6 +44,8 @@ export class OnlinesInfoServer {
     }
 
     private registerRoutes(app: any) {
+        this.resources = ["/onlinesInfo"];
+
         app.get('/onlinesInfo', (req, res) => this.onlinesInfoHandler(req, res));
         this.useMiddlewaresForPath('/onlinesInfo', app, this.setContentTypeJSON);
         this.useMiddlewaresForPath('/onlinesInfo', app, this.setStatusCodeOK);

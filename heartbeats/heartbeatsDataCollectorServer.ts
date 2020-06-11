@@ -13,6 +13,10 @@ export class HeartbeatsDataCollectorServer {
         this.initialize();
     }
 
+    public getName() {
+        return "heartbeats";
+    }
+
     private initialize() {
         const app = express();
         this.useMiddlewares(app);

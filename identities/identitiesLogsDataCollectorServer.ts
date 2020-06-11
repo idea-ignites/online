@@ -15,6 +15,10 @@ export class IdentitiesLogsDataCollectorServer {
         this.initialize();
     }
 
+    public getName() {
+        return "identities";
+    }
+
     private initialize() {
         const app = express();
         this.useMiddlewares(app);

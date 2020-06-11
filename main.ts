@@ -1,18 +1,51 @@
 import { HeartbeatsDataCollectorServer } from "./heartbeats/heartbeatsDataCollectorServer";
 import { IdentitiesLogsDataCollectorServer } from "./identities/identitiesLogsDataCollectorServer";
 import { OnlinesInfoServer } from "./data/onlinesInfoServer";
+import { CaddyConfigure } from "./caddy/caddyConfigure";
 
 class OnlineServices {
 
-    public start() {
+    private routingTable: any;
+
+    private backends() {
         let heartbeats = new HeartbeatsDataCollectorServer();
         let identities = new IdentitiesLogsDataCollectorServer();
         let onlinesInfo = new OnlinesInfoServer();
+
+        return [
+            heartbeats,
+            identities,
+            onlinesInfo
+        ];
+    }
+
+    private configureCaddy() {
+        let caddyConfigurer = new CaddyConfigure();
+        let table = this.routingTable;
+        for (let item of table) {
+            caddyConfigurer.addReverseProxyRule(item);
+        }
+    }
+
+    private launchBackends() {
         let socketsDirectory = __dirname + "/sockets";
 
-        heartbeats.listen(socketsDirectory+"/heartbeats.socket");
-        identities.listen(socketsDirectory+"/identities.socket");
-        onlinesInfo.listen(socketsDirectory+"/onlinesInfo.socket");
+        let backends = this.backends();
+        for (let backend of backends) {
+            let name = backend.getName();
+            let listenPath = socketsDirectory + "/" + name + ".socket";
+            backend.listen(listenPath);
+
+            this.routingTable.push({
+                "from": backend.resourcesClaim(),
+                "to": listenPath
+            });
+        }
+    }
+
+    public start() {
+        this.launchBackends();
+        this.configureCaddy();
     }
 }
 
