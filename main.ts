@@ -23,7 +23,7 @@ class OnlineServices {
         let caddyConfigurer = new CaddyConfigure();
         let table = this.routingTable;
         for (let item of table) {
-            caddyConfigurer.addReverseProxyRule(item);
+            caddyConfigurer.addReverseProxyRule(item.from, item.to);
         }
     }
 

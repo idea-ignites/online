@@ -5,6 +5,7 @@ import axios from "axios";
 export class CaddyConfigure {
 
     private localCaddyConfigure = null;
+    private addReverseProxyRuleIsOccupied = false;
 
 
     public caddyStart() {
@@ -72,7 +73,7 @@ export class CaddyConfigure {
 
     public getLocalConfigure() {
         if (! this.localCaddyConfigure) {
-            this.loadConfigureFromDisk("default");
+            this.localCaddyConfigure = this.loadConfigureFromDisk("default");
         }
 
         return this.localCaddyConfigure;
@@ -84,38 +85,52 @@ export class CaddyConfigure {
             return JSON.parse(data);
         } catch (err) {
             console.log(err);
+            return null;
         }
     }
 
     private loadConfigureFromDisk(templateName: string) {
-        this.localCaddyConfigure = this.getTemplate(templateName);
+        return this.getTemplate(templateName);
     }
 
-    public addReverseProxyRule(ruleItem) {
-        let from = ruleItem.from;
-        let to = ruleItem.to;
+    public async addReverseProxyRule(from: Array<string>, to: string) {
+        if (! this.addReverseProxyRuleIsOccupied){
+            this.addReverseProxyRuleIsOccupied = true;
+
+            let routeObject = this.reverseProxyRoute(from, to);
+
+            let localCaddyConfigure = this.getLocalConfigure();
+            localCaddyConfigure.apps.http.servers.onlineServices.routes.push(routeObject);
+            this.localCaddyConfigure = localCaddyConfigure;
+
+            let response = await this.uploadLocalConfigureToCaddy();
+
+            this.addReverseProxyRuleIsOccupied = false;
+
+            return response;
+        }
+        else {
+            while (this.addReverseProxyRuleIsOccupied) {
+                // wait
+            }           
+            return this.addReverseProxyRule(from, to);
+        }
     }
 
     private reverseProxyRoute(from: Array<string>, to: string) {
-        // let caddyTemplate = this.getCaddyTemplate();
-        // let routeTemplate = caddyTemplate.apps.http.servers[0].routes[0];
+        let routeTemplate = this.loadConfigureFromDisk("reverseProxyRoute");
+        if (! routeTemplate) {
+            return;
+        }
 
-        // routeTemplate.match = from.map(
-            // sourceItem => {
-                // return {"path": [sourceItem]}
-            // }
-        // );
+        routeTemplate.match = from.map(
+            sourceItem => {
+                return {"path": [sourceItem]}
+            }
+        );
 
-        // routeTemplate.handle[0].upstreams[0].dial = to;
+        routeTemplate.handle[0].upstreams[0].dial = to;
 
-        // return routeTemplate;
+        return routeTemplate;
     }
 }
-
-let caddyConfigurer = new CaddyConfigure();
-
-caddyConfigurer.caddyStop();
-
-caddyConfigurer.ifCaddyisNotStartedYetThenTryStartIt();
-
-// console.log(JSON.stringify(caddyConfigurer.getCaddyTemplate()));

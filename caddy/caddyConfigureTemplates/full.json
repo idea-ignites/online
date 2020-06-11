@@ -2,7 +2,7 @@
     "apps": {
         "http": {
             "servers": {
-                "testWebSite": {
+                "onlineServices": {
                     "listen": [":80"],
                     "routes": [
                         {
