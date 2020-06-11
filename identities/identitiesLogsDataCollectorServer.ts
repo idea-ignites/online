@@ -81,6 +81,7 @@ export class IdentitiesLogsDataCollectorServer {
     }
 
     public listen(path: number | string) {
+        console.log(`listen ${path}`);
         this.app.listen(path, () => this.onServerStarted(path));
     }
 

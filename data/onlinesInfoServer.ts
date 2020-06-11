@@ -36,6 +36,7 @@ export class OnlinesInfoServer {
     }
 
     public listen(path) {
+        console.log(`listen ${path}`);
         this.app.listen(path, () => this.onServerStarted(path));
     }
 

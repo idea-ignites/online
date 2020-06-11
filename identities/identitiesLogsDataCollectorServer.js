@@ -12,6 +12,9 @@ var IdentitiesLogsDataCollectorServer = /** @class */ (function () {
         this.port = 1572;
         this.initialize();
     }
+    IdentitiesLogsDataCollectorServer.prototype.getName = function () {
+        return "identities";
+    };
     IdentitiesLogsDataCollectorServer.prototype.initialize = function () {
         var app = express();
         this.useMiddlewares(app);
@@ -61,6 +64,7 @@ var IdentitiesLogsDataCollectorServer = /** @class */ (function () {
     };
     IdentitiesLogsDataCollectorServer.prototype.listen = function (path) {
         var _this = this;
+        console.log("listen " + path);
         this.app.listen(path, function () { return _this.onServerStarted(path); });
     };
     IdentitiesLogsDataCollectorServer.prototype.setMasterSecret = function (secret) {

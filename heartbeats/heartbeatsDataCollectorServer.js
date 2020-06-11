@@ -10,6 +10,9 @@ var HeartbeatsDataCollectorServer = /** @class */ (function () {
         this.port = 1574;
         this.initialize();
     }
+    HeartbeatsDataCollectorServer.prototype.getName = function () {
+        return "heartbeats";
+    };
     HeartbeatsDataCollectorServer.prototype.initialize = function () {
         var app = express();
         this.useMiddlewares(app);
@@ -32,6 +35,7 @@ var HeartbeatsDataCollectorServer = /** @class */ (function () {
     };
     HeartbeatsDataCollectorServer.prototype.listen = function (path) {
         var _this = this;
+        console.log("listen " + path);
         this.app.listen(path, function () { return _this.onServerStarted(path); });
     };
     HeartbeatsDataCollectorServer.prototype.onServerStarted = function (path) {

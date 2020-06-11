@@ -6,7 +6,13 @@ export class CaddyConfigure {
 
     private localCaddyConfigure = null;
     private addReverseProxyRuleIsOccupied = false;
+    private caddyAPIEndPoint = "http://127.0.0.1:2019";
+    private synchronizingPeriod = 10;
 
+    constructor() {
+        this.ifCaddyisNotStartedYetThenTryStartIt();
+        this.synchronizeLocalConfigureToCaddy(this.synchronizingPeriod);
+    }
 
     public caddyStart() {
         let caddyProcess = spawn('caddy', ['start'], {'detached': true, 'stdio': 'ignore'});
@@ -14,6 +20,26 @@ export class CaddyConfigure {
 
     public caddyStop() {
         let caddyProcess = spawn('caddy', ['stop'], {'detached': true, 'stdio': 'ignore'});
+    }
+
+    private setConfigureSynchronizingPeriod(seconds: number) {
+        this.synchronizingPeriod = seconds;
+    }
+
+    private synchronizeLocalConfigureToCaddy(periodSeconds: number) {
+        return this.waitingPromise(periodSeconds).then(resolvedAt => {
+            console.log("Start synchronizing configures...");
+            this.uploadLocalConfigureToCaddy().catch(error => console.log(error));
+            this.synchronizeLocalConfigureToCaddy(periodSeconds);
+        });
+    }
+
+    private waitingPromise(seconds: number) {
+        return new Promise(
+            (resolve, reject) => {
+                setTimeout(() => resolve(Date.now()), seconds*1000);
+            }
+        );
     }
 
     public async isCaddyStarted() {
@@ -47,9 +73,13 @@ export class CaddyConfigure {
         }
     }
 
+    public setCaddyApiEndPoint(apiEndPoint: string) {
+        this.caddyAPIEndPoint = apiEndPoint;
+    }
+
     private getAxiosInstance() {
         let instance = axios.create({
-            "baseURL": "http://127.0.0.1:2019",
+            "baseURL": this.caddyAPIEndPoint,
             "headers": { "Content-Type": "application/json" }
         });
 
@@ -94,27 +124,15 @@ export class CaddyConfigure {
     }
 
     public async addReverseProxyRule(from: Array<string>, to: string) {
-        if (! this.addReverseProxyRuleIsOccupied){
-            this.addReverseProxyRuleIsOccupied = true;
+        console.log(`Try to add route ${from} => ${to} ...`);
 
-            let routeObject = this.reverseProxyRoute(from, to);
+        let routeObject = this.reverseProxyRoute(from, to);
 
-            let localCaddyConfigure = this.getLocalConfigure();
-            localCaddyConfigure.apps.http.servers.onlineServices.routes.push(routeObject);
-            this.localCaddyConfigure = localCaddyConfigure;
+        let localCaddyConfigure = this.getLocalConfigure();
+        localCaddyConfigure.apps.http.servers.onlineServices.routes.push(routeObject);
+        this.localCaddyConfigure = localCaddyConfigure;
 
-            let response = await this.uploadLocalConfigureToCaddy();
-
-            this.addReverseProxyRuleIsOccupied = false;
-
-            return response;
-        }
-        else {
-            while (this.addReverseProxyRuleIsOccupied) {
-                // wait
-            }           
-            return this.addReverseProxyRule(from, to);
-        }
+        console.log("Route added.");
     }
 
     private reverseProxyRoute(from: Array<string>, to: string) {
