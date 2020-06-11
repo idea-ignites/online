@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+exports.IdentitiesLogsDataCollectorServer = void 0;
 var uuid_1 = require("uuid");
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -58,9 +59,9 @@ var IdentitiesLogsDataCollectorServer = /** @class */ (function () {
         res.statusCode = 200;
         next();
     };
-    IdentitiesLogsDataCollectorServer.prototype.listen = function (port) {
+    IdentitiesLogsDataCollectorServer.prototype.listen = function (path) {
         var _this = this;
-        this.app.listen(port, function () { return _this.onServerStarted(port); });
+        this.app.listen(path, function () { return _this.onServerStarted(path); });
     };
     IdentitiesLogsDataCollectorServer.prototype.setMasterSecret = function (secret) {
         this.masterSecret = secret;
@@ -144,8 +145,8 @@ var IdentitiesLogsDataCollectorServer = /** @class */ (function () {
         var checkResult = computedUUIDHash === receivedUUIDHash;
         return checkResult;
     };
-    IdentitiesLogsDataCollectorServer.prototype.onServerStarted = function (port) {
-        console.log("Server running at port " + port);
+    IdentitiesLogsDataCollectorServer.prototype.onServerStarted = function (path) {
+        console.log("Server started at " + path);
     };
     IdentitiesLogsDataCollectorServer.prototype.retrieveAllLogs = function (req, res) {
         res.json(this.logs);
@@ -164,5 +165,4 @@ var IdentitiesLogsDataCollectorServer = /** @class */ (function () {
     };
     return IdentitiesLogsDataCollectorServer;
 }());
-var server = new IdentitiesLogsDataCollectorServer();
-server.listen(1572);
+exports.IdentitiesLogsDataCollectorServer = IdentitiesLogsDataCollectorServer;

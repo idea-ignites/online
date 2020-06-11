@@ -40,13 +40,12 @@ export class HeartbeatsDataCollectorServer {
         });
     }
 
-    public listen(port: number) {
-        this.port = port;
-        this.app.listen(port, () => this.onServerStarted(port));
+    public listen(path: number | string) {
+        this.app.listen(path, () => this.onServerStarted(path));
     }
 
-    private onServerStarted(port: number) {
-        console.log(`Server started at port ${port}`);
+    private onServerStarted(path: number | string) {
+        console.log(`Server started at ${path}`);
     }
 
     public resourcesClaim() {

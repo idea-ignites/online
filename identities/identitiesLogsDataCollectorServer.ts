@@ -76,8 +76,8 @@ export class IdentitiesLogsDataCollectorServer {
         next()
     }
 
-    public listen(port: number) {
-        this.app.listen(port, () => this.onServerStarted(port));
+    public listen(path: number | string) {
+        this.app.listen(path, () => this.onServerStarted(path));
     }
 
     public setMasterSecret(secret: string) {
@@ -185,8 +185,8 @@ export class IdentitiesLogsDataCollectorServer {
         return checkResult;
     }
     
-    private onServerStarted(port) {
-        console.log(`Server running at port ${port}`);
+    private onServerStarted(path: number | string) {
+        console.log(`Server started at ${path}`);
     }
 
     private retrieveAllLogs(req, res) {
