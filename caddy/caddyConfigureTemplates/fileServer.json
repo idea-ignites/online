@@ -1,0 +1,26 @@
+{
+    "apps": {
+        "http": {
+            "servers": {
+                "testWebSite": {
+                    "listen": [":80"],
+                    "routes": [
+                        {
+                            "handle": [
+                                {
+                                    "handler": "file_server",
+                                    "root": "/Users/mike/onlineServices/frontend",
+                                    "index_names": ["index.html"],
+                                    "pass_thru": true
+                                }
+                            ]
+                        }
+                    ],
+                    "automatic_https": {
+                        "disable": true
+                    }
+                }
+            }
+        }
+    }
+}

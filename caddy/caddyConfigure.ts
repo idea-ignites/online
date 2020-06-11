@@ -16,6 +16,10 @@ export class CaddyConfigure {
     }
 
     public async isCaddyStarted() {
+        /**
+         * we can also infer this from processes list,
+         * but the http way is less coherent to operating system
+         */
         let instance = this.getAxiosInstance();
         let response = await instance.get("/config/").then(response => {
             return (response.status >= 100 && response.status < 300);
