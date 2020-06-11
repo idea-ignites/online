@@ -1,17 +1,33 @@
 const fs = require('fs');
 const { spawn } = require('child_process');
+const EventEmitter = require('events');
 import axios from "axios";
 
 export class CaddyConfigure {
 
     private localCaddyConfigure = null;
-    private addReverseProxyRuleIsOccupied = false;
     private caddyAPIEndPoint = "http://127.0.0.1:2019";
-    private synchronizingPeriod = 10;
+    private eventEmitter: any;
 
     constructor() {
+        this.registerEventHandlers();
         this.ifCaddyisNotStartedYetThenTryStartIt();
-        this.synchronizeLocalConfigureToCaddy(this.synchronizingPeriod);
+    }
+
+    private registerEventHandlers() {
+        let eventEmitter = new EventEmitter();
+        this.eventEmitter = eventEmitter;
+        eventEmitter.on('caddyStarted', () => this.onCaddyStarted());
+    }
+
+    private onCaddyStarted() {
+        console.log('Caddy is started.');
+        this.eventEmitter.on('localConfiguresUpdated', () => this.onLocalConfiguresUpdated());
+    }
+
+    private onLocalConfiguresUpdated() {
+        console.log("Noticed that local configures were updated, so upload it to caddy server...");
+        this.uploadLocalConfigureToCaddy();
     }
 
     public caddyStart() {
@@ -22,26 +38,6 @@ export class CaddyConfigure {
         let caddyProcess = spawn('caddy', ['stop'], {'detached': true, 'stdio': 'ignore'});
     }
 
-    private setConfigureSynchronizingPeriod(seconds: number) {
-        this.synchronizingPeriod = seconds;
-    }
-
-    private synchronizeLocalConfigureToCaddy(periodSeconds: number) {
-        return this.waitingPromise(periodSeconds).then(resolvedAt => {
-            console.log("Start synchronizing configures...");
-            this.uploadLocalConfigureToCaddy().catch(error => console.log(error));
-            this.synchronizeLocalConfigureToCaddy(periodSeconds);
-        });
-    }
-
-    private waitingPromise(seconds: number) {
-        return new Promise(
-            (resolve, reject) => {
-                setTimeout(() => resolve(Date.now()), seconds*1000);
-            }
-        );
-    }
-
     public async isCaddyStarted() {
         /**
          * we can also infer this from processes list,
@@ -49,28 +45,24 @@ export class CaddyConfigure {
          */
         let instance = this.getAxiosInstance();
         let response = await instance.get("/config/").then(response => {
-            return (response.status >= 100 && response.status < 300);
+            let isStarted = (response.status >= 100 && response.status < 300); 
+            if (isStarted) {
+                return true;
+            }
+            else {
+                return Promise.reject(false);
+            }
         }).catch(error => false);
         return response;
     }
 
     public async ifCaddyisNotStartedYetThenTryStartIt() {
-        let isCaddyStarted = await this.isCaddyStarted();
-        if (isCaddyStarted) {
-            console.log("Caddy is started.");
-        }
-        else {
-            console.log("Seems that caddy is not started yet, so we are trying to start it...");
+        this.isCaddyStarted().then(isStarted => {
+            this.emitEventWithGuarantee('caddyStarted', 4000);
+        }).catch(notStartedYet => {
             this.caddyStart();
-
-            let justNow = Date.now();
-            let timeToWait = 4000;
-            while (Date.now() < (justNow + timeToWait)) {
-                // wait
-            }
-
             this.ifCaddyisNotStartedYetThenTryStartIt();
-        }
+        });
     }
 
     public setCaddyApiEndPoint(apiEndPoint: string) {
@@ -103,7 +95,7 @@ export class CaddyConfigure {
 
     public getLocalConfigure() {
         if (! this.localCaddyConfigure) {
-            this.localCaddyConfigure = this.loadConfigureFromDisk("default");
+            this.setLocalConfigure(this.loadConfigureFromDisk("default"));
         }
 
         return this.localCaddyConfigure;
@@ -130,9 +122,35 @@ export class CaddyConfigure {
 
         let localCaddyConfigure = this.getLocalConfigure();
         localCaddyConfigure.apps.http.servers.onlineServices.routes.push(routeObject);
-        this.localCaddyConfigure = localCaddyConfigure;
+        this.setLocalConfigure(localCaddyConfigure);
 
         console.log("Route added.");
+    }
+
+    private setLocalConfigure(configure: any) {
+        this.localCaddyConfigure = configure;
+        this.emitEventWithGuarantee('localConfiguresUpdated', 4000);
+    }
+
+    private emitEvent(event: string) {
+        return new Promise((resolve, reject) => {
+            let result = this.eventEmitter.emit(event);
+            if (result) {
+                resolve(result);
+            }
+            else {
+                reject(result);
+            }
+        })
+    }
+
+    private emitEventWithGuarantee(event: string, retryAfterSeconds: number) {
+        this.emitEvent(event).catch(rejected => {
+            setTimeout(
+                () => this.emitEventWithGuarantee(event, retryAfterSeconds), 
+                retryAfterSeconds*1000
+            );
+        });
     }
 
     private reverseProxyRoute(from: Array<string>, to: string) {
