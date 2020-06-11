@@ -3,7 +3,9 @@ import { DataServices } from "./dataServices";
 const express = require('express');
 const bodyParser = require('body-parser');
 
-class MainServer {
+export class OnlinesInfoServer {
+
+    private app: any;
 
     constructor () {
         this.initialize();
@@ -13,7 +15,7 @@ class MainServer {
         const app = express();
         this.useMiddlewares(app);
         this.registerRoutes(app);
-        this.listenOnPortForIncomingMessages(app);
+        this.app = app;
     }
     
     private useMiddlewares(app: any) {
@@ -24,13 +26,12 @@ class MainServer {
         );
     }
 
-    private listenOnPortForIncomingMessages(app: any) {
-        const port = 23982;
-        app.listen(port, () => this.onServerStarted(port));
+    public listen(path) {
+        this.app.listen(path, () => this.onServerStarted(path));
     }
 
-    private onServerStarted(port: number) {
-        console.log(`Server started at port ${port}`);
+    private onServerStarted(path) {
+        console.log(`Server started at ${path}`);
     }
 
     private registerRoutes(app: any) {
@@ -77,5 +78,3 @@ class MainServer {
         };
     }
 }
-
-let server = new MainServer();
