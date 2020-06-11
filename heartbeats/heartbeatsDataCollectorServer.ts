@@ -6,12 +6,6 @@ class HeartbeatsDataCollectorServer {
 
     private logs = [];
     private app: any;
-    private errorMessages = {
-        "errorIncorrectTicket": {
-            "message": "Incorrect ticket",
-            "okay": false
-        }
-    };
     private resourcesDeclaration: any;
     private port = 1574;
 
@@ -40,7 +34,10 @@ class HeartbeatsDataCollectorServer {
 
     private errorHandler(err, req, res, next) {
         console.log(err.message);
-        res.json(this.errorMessages[err.message]);
+        res.json({
+            "message": err.message,
+            "passed": false
+        });
     }
 
     public listen(port: number) {
