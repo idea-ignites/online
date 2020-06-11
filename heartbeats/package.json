@@ -1,0 +1,16 @@
+{
+  "name": "exploro-dot-one-blog-online-services-heartbeats",
+  "version": "1.0.0",
+  "description": "exploro.one blog online services",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "uuid": "^8.1.0"
+  }
+}

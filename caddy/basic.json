@@ -1,0 +1,89 @@
+{
+    "apps": {
+        "http": {
+            "servers": {
+                "testWebSite": {
+                    "listen": [":80"],
+                    "routes": [
+                        {
+                            "handle": [
+                                {
+                                    "handler": "file_server",
+                                    "root": "/Users/mike/onlineServices/frontend",
+                                    "index_names": ["index.html"],
+                                    "pass_thru": true
+                                }
+                            ]
+                        },
+                        {
+                            "match": [{"path":["/identities"]},{"path":["/identitiesLogs"]}],
+                            "handle": [{
+                                "handler": "reverse_proxy",
+                                "upstreams": [{
+                                    "dial": "127.0.0.1:1572"
+                                }],
+                                "headers": {
+                                    "request": {
+                                        "add": {"x-forwarded-for": ["{http.request.remote.host}"]}
+                                    },
+                                    "response":{
+                                        "add": {
+                                            "Access-Control-Allow-Origin": ["*"],
+                                            "Access-Control-Allow-Methods": ["*"],
+                                            "Access-Control-Allow-Headers": ["*"]
+                                        }
+                                    }
+                                }
+                            }]
+                        },
+                        {
+                            "match": [{"path":["/heartbeats"]}],
+                            "handle": [{
+                                "handler": "reverse_proxy",
+                                "upstreams": [{
+                                    "dial": "127.0.0.1:1574"
+                                }],
+                                "headers": {
+                                    "request": {
+                                        "add": {"x-forwarded-for": ["{http.request.remote.host}"]}
+                                    },
+                                    "response":{
+                                        "add": {
+                                            "Access-Control-Allow-Origin": ["*"],
+                                            "Access-Control-Allow-Methods": ["*"],
+                                            "Access-Control-Allow-Headers": ["*"]
+                                        }
+                                    }
+                                }
+                            }]
+                        },
+                        {
+                            "match": [{"path":["/onlinesInfo"]}],
+                            "handle": [{
+                                "handler": "reverse_proxy",
+                                "upstreams": [{
+                                    "dial": "127.0.0.1:23982"
+                                }],
+                                "headers": {
+                                    "request": {
+                                        "add": {"x-forwarded-for": ["{http.request.remote.host}"]}
+                                    },
+                                    "response":{
+                                        "add": {
+                                            "Access-Control-Allow-Origin": ["*"],
+                                            "Access-Control-Allow-Methods": ["*"],
+                                            "Access-Control-Allow-Headers": ["*"]
+                                        }
+                                    }
+                                }
+                            }]
+                        }
+                    ],
+                    "automatic_https": {
+                        "disable": true
+                    }
+                }
+            }
+        }
+    }
+}
