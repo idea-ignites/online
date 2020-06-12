@@ -1,4 +1,4 @@
-import { DataServices } from "./dataServices";
+import { OnlinesStats } from "./onlinesInfoStats";
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -67,26 +67,13 @@ export class OnlinesInfoServer {
     }
 
     private async onlinesInfoHandler(req, res) {
-        let ds = new DataServices();
-        let statsData = await this.getStats(ds).catch(error => console.log(error));
-        res.json(statsData);
-    }
+        let result = {};
+        let stats = new OnlinesStats();
+        let statsName = stats.getStatsName();
+        let statsData = await stats.getStatsData().catch(error => console.log(error));
 
-    private async getStats(dataServices) {
-        let last24Hours = await dataServices.howManyPeopleOnlineWithin(60*60*24);
-        let last12Hours = await dataServices.howManyPeopleOnlineWithin(60*60*12);
-        let last1Hour = await dataServices.howManyPeopleOnlineWithin(60*60*1);
-        let last30Minutes = await dataServices.howManyPeopleOnlineWithin(60*30);
-        let last10Minutes = await dataServices.howManyPeopleOnlineWithin(60*10);
-        let last5Minutes = await dataServices.howManyPeopleOnlineWithin(60*5);
-
-        return {
-            "last24HoursOnlines": last24Hours,
-            "last12HoursOnlines": last12Hours,
-            "last1HourOnlines": last1Hour,
-            "last30MinutesOnlines": last30Minutes,
-            "last10MinutesOnlines": last10Minutes,
-            "last5MinutesOnlines": last5Minutes
-        };
+        result[statsName] = statsData;
+        res.json(result);
     }
+    
 }

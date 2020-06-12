@@ -3,6 +3,7 @@ import { IdentitiesLogsDataCollectorServer } from "./identities/identitiesLogsDa
 import { OnlinesInfoServer } from "./data/onlinesInfoServer";
 import { CaddyConfigure } from "./caddy/caddyConfigure";
 import { DataManagementSystem } from "./data/dataManagementSystem";
+import { StatsAggregator } from "./data/statsAggregator";
 const fs = require("fs");
 
 class OnlineServices {
@@ -11,6 +12,13 @@ class OnlineServices {
 
     constructor() {
         this.routingTable = [];
+    }
+
+    private startStatsSynchronizing() {
+        let statsAggregator = new StatsAggregator();
+        let syncPeriodInSeconds = 4;
+        statsAggregator.startComputeStatsPeriod(syncPeriodInSeconds);
+        console.log(`Started stats synchronizing services, period is ${syncPeriodInSeconds} seconds`);
     }
 
     private startDataSynchronizing() {
@@ -85,6 +93,8 @@ class OnlineServices {
         this.launchBackends();
         this.configureCaddy();
         this.startDataSynchronizing();
+        this.startStatsSynchronizing();
+        console.log("All launching procedures dispatched.");
     }
 }
 
