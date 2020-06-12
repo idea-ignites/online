@@ -2,6 +2,7 @@ import { HeartbeatsDataCollectorServer } from "./heartbeats/heartbeatsDataCollec
 import { IdentitiesLogsDataCollectorServer } from "./identities/identitiesLogsDataCollectorServer";
 import { OnlinesInfoServer } from "./data/onlinesInfoServer";
 import { CaddyConfigure } from "./caddy/caddyConfigure";
+import { DataManagementSystem } from "./data/dataManagementSystem";
 const fs = require("fs");
 
 class OnlineServices {
@@ -10,6 +11,13 @@ class OnlineServices {
 
     constructor() {
         this.routingTable = [];
+    }
+
+    private startDataSynchronizing() {
+        let dms = new DataManagementSystem();
+        let syncPeriodInSeconds = 1;
+        dms.constantSync(syncPeriodInSeconds);
+        console.log(`Started data synchronizing services, period is ${syncPeriodInSeconds} seconds`);
     }
 
     private backends() {
@@ -76,6 +84,7 @@ class OnlineServices {
         console.log("Starting...");
         this.launchBackends();
         this.configureCaddy();
+        this.startDataSynchronizing();
     }
 }
 

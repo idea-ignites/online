@@ -3,7 +3,7 @@ import axios from 'axios';
 export class IdentitiesLogsDataSource {
 
     apiEndPoint = "http://localhost";
-    apiPath = "/logs";
+    apiPath = "/identitiesLogs";
     masterTicket = "ILoveBlueSky";
 
     baseHeaders = {

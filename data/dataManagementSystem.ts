@@ -14,9 +14,22 @@ export class DataManagementSystem {
     private databaseClient: any;
     private connected = false;
     private database: any;
+    private syncPeriodSeconds: 1;
 
     constructor() {
         this.initializeDataSources();
+        // this.constantSync(this.syncPeriodSeconds);
+    }
+
+    public constantSync(periodSeconds: number) {
+        let wait = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(Date.now()), periodSeconds*1000);
+        });
+
+        wait.then(resolved => {
+            this.synchronizeAll().catch(error => console.log(error));
+            this.constantSync(periodSeconds);
+        }).catch(error => console.log(error));
     }
 
     private async connectDatabase(): Promise<any> {
@@ -46,6 +59,8 @@ export class DataManagementSystem {
     }
 
     private async synchronize(dataSourceName: string) {
+        // console.log(`Synchronizing ${dataSourceName}`);
+
         return await this.fetchFromUpstreams(dataSourceName).then(data => {
 
             if (data.length !== 0) {
