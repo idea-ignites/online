@@ -41,6 +41,25 @@ caddy start
 
 Caddy需要能够监听80，443端口.
 
+然后安装MongoDB
+
+```
+sudo apt-get install gnupg
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+```
+
+启动MongoDB
+
+```
+sudo systemctl start mongod
+sudo systemctl enable mongod
+```
+
+到这里，所有依赖项就安装完毕了.
+
 ### 拉取并编译项目
 
 首先拉取项目

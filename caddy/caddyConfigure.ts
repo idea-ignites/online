@@ -11,6 +11,21 @@ export class CaddyConfigure {
 
     constructor() {
         this.registerEventHandlers();
+        this.configureHTTPS();
+    }
+
+    private configureHTTPS() {
+        let onlineServicesServerName = process.env.ONLINE_SERVICES_SERVER_NAME || '';
+        if (onlineServicesServerName) {
+            console.log(`Found server name: ${onlineServicesServerName}, enabling https...`);
+            let configure = this.getLocalConfigure();
+            configure.apps.http.servers.onlineServices.listen.push(":443");
+            configure.apps.http.servers.onlineServices.routes[0].match = [{"host":[onlineServicesServerName]}];
+            let webRoot = process.env.ONLINE_SERVICES_SERVER_WEBROOT || __dirname + "/../frontend/";
+            configure.apps.http.servers.onlineServices.routes[0].handle[0].root = webRoot;
+
+            this.setLocalConfigure(configure);
+        }
     }
 
     private registerEventHandlers() {

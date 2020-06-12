@@ -54,6 +54,7 @@ class OnlineServices {
     private launchBackends() {
         console.log("Start launching backends...");
         let socketsDirectory = __dirname + "/sockets";
+        fs.mkdirSync(socketsDirectory);
         console.log(`Set sockets directory ${socketsDirectory}`);
 
         let fileNames = [];

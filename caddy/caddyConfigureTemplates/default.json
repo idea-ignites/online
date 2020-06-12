@@ -15,10 +15,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "automatic_https": {
-                        "disable": true
-                    }
+                    ]
                 }
             }
         }
