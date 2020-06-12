@@ -1,4 +1,4 @@
-import { OnlinesStats } from "./onlinesInfoStats";
+import { StatsAggregator } from "./statsAggregator";
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -67,13 +67,9 @@ export class OnlinesInfoServer {
     }
 
     private async onlinesInfoHandler(req, res) {
-        let result = {};
-        let stats = new OnlinesStats();
-        let statsName = stats.getStatsName();
-        let statsData = await stats.getStatsData().catch(error => console.log(error));
-
-        result[statsName] = statsData;
-        res.json(result);
+        let statsAggregator = new StatsAggregator();
+        let data = statsAggregator.getData();
+        res.json(data);
     }
     
 }

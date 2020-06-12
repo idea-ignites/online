@@ -32,4 +32,8 @@ export class StatsAggregator {
         });
     }
 
+    public getData() {
+        return this.statsCache;
+    }
+
 }
