@@ -1,18 +1,13 @@
 {
-  "name": "testwebsite",
+  "name": "onlineservices",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "express": "^4.17.1"
-  },
   "devDependencies": {
     "browserify": "^16.5.1",
     "gulp": "^4.0.2",

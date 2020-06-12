@@ -1,3 +1,6 @@
 node_module/
 */node_modules/
 sockets/*
+node_modules
+*/dist/
+*/*.js
