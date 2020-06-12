@@ -40,6 +40,7 @@ export class OnlinesStats {
         let last30Minutes = await this.howManyPeopleOnlineWithin(60*30);
         let last10Minutes = await this.howManyPeopleOnlineWithin(60*10);
         let last5Minutes = await this.howManyPeopleOnlineWithin(60*5);
+        let last1Minite = await this.howManyPeopleOnlineWithin(60*1);
 
         return {
             "last24HoursOnlines": last24Hours,
@@ -47,7 +48,8 @@ export class OnlinesStats {
             "last1HourOnlines": last1Hour,
             "last30MinutesOnlines": last30Minutes,
             "last10MinutesOnlines": last10Minutes,
-            "last5MinutesOnlines": last5Minutes
+            "last5MinutesOnlines": last5Minutes,
+            "last1MinuteOnlines": last1Minite
         };
     }
 
