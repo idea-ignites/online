@@ -2,6 +2,16 @@ const axios = require("axios");
 
 export class Identities {
 
+    private getAPIInstance() {
+        let onlineServicesServerAPIEndPoint = window["onlineServicesServerAPIEndPoint"] || '';
+        return axios.create({
+            baseURL: onlineServicesServerAPIEndPoint,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
     saveIdentityObjectToLocalStorage(identityObject) {
         window.localStorage.setItem("identityUUID", identityObject.uuid);
         window.localStorage.setItem("identityCheckSum", identityObject.checkSum);
@@ -47,12 +57,7 @@ export class Identities {
     }
 
     async issueNewIdentity() {
-        const instance = axios.create({
-            baseURL: 'http://services.yoursite.com',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        const instance = this.getAPIInstance();
         
         let response = await instance.post(
             '/identities', 
@@ -70,12 +75,7 @@ export class Identities {
 
     async validateIdentity(identitiesObject) {
 
-        const instance = axios.create({
-            baseURL: 'http://services.yoursite.com',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        const instance = this.getAPIInstance()
 
         let response = await instance.post(
             '/identities', 

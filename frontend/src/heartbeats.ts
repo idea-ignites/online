@@ -4,6 +4,16 @@ import { Identities } from "./identities";
 
 export class Heartbeats {
 
+    private getAPIInstance() {
+        let onlineServicesServerAPIEndPoint = window["onlineServicesServerAPIEndPoint"] || '';
+        return axios.create({
+            baseURL: onlineServicesServerAPIEndPoint,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
     async transmittingHeartbeats() {
         let heartbeatPeriodInSeconds = 4;
         let heartbeatObjectPMS = this.makeHeartbeat(heartbeatPeriodInSeconds);
@@ -22,12 +32,7 @@ export class Heartbeats {
     }
 
     async sendHeartbeat(heartbeatObject) {
-        const instance = axios.create({
-            baseURL: 'http://services.yoursite.com',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        const instance = this.getAPIInstance();
 
         heartbeatObject.purpose = "newHeartbeat";
 
