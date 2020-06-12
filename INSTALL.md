@@ -93,7 +93,7 @@ node main.js
 curl -s http://services.yoursite.com/onlinesInfo | jq
 ```
 
-应该可以看到输出
+多试几次，应该可以看到输出
 
 ```
 {
