@@ -4,3 +4,4 @@ sockets/*
 node_modules
 */dist/
 */*.js
+main.js

@@ -11,58 +11,17 @@ export class CaddyConfigure {
 
     constructor() {
         this.registerEventHandlers();
-        this.ifCaddyisNotStartedYetThenTryStartIt();
     }
 
     private registerEventHandlers() {
         let eventEmitter = new EventEmitter();
         this.eventEmitter = eventEmitter;
-        eventEmitter.on('caddyStarted', () => this.onCaddyStarted());
-    }
-
-    private onCaddyStarted() {
-        console.log('Caddy is started.');
         this.eventEmitter.on('localConfiguresUpdated', () => this.onLocalConfiguresUpdated());
     }
 
     private onLocalConfiguresUpdated() {
         console.log("Noticed that local configures were updated, so upload it to caddy server...");
         this.uploadLocalConfigureToCaddy();
-    }
-
-    public caddyStart() {
-        let caddyProcess = spawn('caddy', ['start'], {'detached': true, 'stdio': 'ignore'});
-    }
-
-    public caddyStop() {
-        let caddyProcess = spawn('caddy', ['stop'], {'detached': true, 'stdio': 'ignore'});
-    }
-
-    public async isCaddyStarted() {
-        /**
-         * we can also infer this from processes list,
-         * but the http way is less coherent to operating system
-         */
-        let instance = this.getAxiosInstance();
-        let response = await instance.get("/config/").then(response => {
-            let isStarted = (response.status >= 100 && response.status < 300); 
-            if (isStarted) {
-                return true;
-            }
-            else {
-                return Promise.reject(false);
-            }
-        }).catch(error => false);
-        return response;
-    }
-
-    public async ifCaddyisNotStartedYetThenTryStartIt() {
-        this.isCaddyStarted().then(isStarted => {
-            this.emitEventWithGuarantee('caddyStarted', 4000);
-        }).catch(notStartedYet => {
-            this.caddyStart();
-            this.ifCaddyisNotStartedYetThenTryStartIt();
-        });
     }
 
     public setCaddyApiEndPoint(apiEndPoint: string) {
@@ -80,7 +39,9 @@ export class CaddyConfigure {
 
     public async uploadLocalConfigureToCaddy() {
         let instance = this.getAxiosInstance();
-        let response = await instance.post("/load", this.getLocalConfigure());
+        let config = this.getLocalConfigure();
+        console.log(`Posting configure: ${JSON.stringify(config)}`);
+        let response = await instance.post("/load", this.getLocalConfigure()).catch(error => console.log(error));
         return response;
     }
 
@@ -129,17 +90,21 @@ export class CaddyConfigure {
 
     private setLocalConfigure(configure: any) {
         this.localCaddyConfigure = configure;
-        this.emitEventWithGuarantee('localConfiguresUpdated', 4000);
+        console.log('Configures updated.');
+        this.emitEventWithGuarantee('localConfiguresUpdated', 4);
     }
 
     private emitEvent(event: string) {
         return new Promise((resolve, reject) => {
+            console.log(`Emitting event: ${event}`);
             let result = this.eventEmitter.emit(event);
-            if (result) {
+            if (result) { 
                 resolve(result);
+                console.log(`${event}: emitted.`);
             }
             else {
                 reject(result);
+                console.log(`${event}: no event handler found, will try later.`);
             }
         })
     }

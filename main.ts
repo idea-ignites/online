@@ -59,11 +59,12 @@ class OnlineServices {
                 console.log(`deleting ${listenPath}`);
                 fs.unlinkSync(listenPath);
             }
+
             backend.listen(listenPath);
 
             this.routingTable.push({
                 "from": backend.resourcesClaim(),
-                "to": listenPath
+                "to": "unix/" + listenPath
             });
         }
 
