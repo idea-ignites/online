@@ -1,8 +1,12 @@
 import { OnlinesStats } from "./onlinesInfoStats";
 
-export class StatsAggregator {
+export { StatsAggregator }
 
-    private statsCache = {};
+var statsAggreagate = {};
+
+class StatsAggregator {
+
+    // private statsCache = {};
 
     private getStatsSource() {
         let onlinesStats = new OnlinesStats();
@@ -12,13 +16,16 @@ export class StatsAggregator {
         ];
     }
 
-    private async computeStats() {
+    public async computeStats() {
         let statsSources = this.getStatsSource();
+        let data = {};
         for (let statsSource of statsSources) {
             let statsName = await statsSource.getStatsName();
             let statsData = await statsSource.getStatsData();
-            this.statsCache[statsName] = statsData;
+            data[statsName] = statsData;
         }
+
+        return data;
     }
 
     public startComputeStatsPeriod(periodSeconds: number) {
@@ -27,13 +34,20 @@ export class StatsAggregator {
         });
 
         wait.then(resolved => {
-            this.computeStats().catch(error => console.log(error));
+            this.computeStats().then(data => {
+                statsAggreagate = JSON.parse(JSON.stringify(data));
+            }).catch(error => console.log(error));
             this.startComputeStatsPeriod(periodSeconds);
         });
     }
 
     public getData() {
-        return this.statsCache;
+        // console.log(`Get data: ${JSON.stringify(this.statsCache)}`);
+        return statsAggreagate;
     }
 
 }
+
+// let stats = new StatsAggregator();
+// stats.startComputeStatsPeriod(4);
+// stats.computeStats();
