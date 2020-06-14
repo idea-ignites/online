@@ -56,10 +56,14 @@ class OnlineServices {
         console.log("Start launching backends...");
         let socketsDirectory = __dirname + "/sockets";
 
-        try {
-            fs.mkdirSync(socketsDirectory);
-        } catch (err) {
-            console.log(err);
+        if (! fs.existsSync(socketsDirectory)) {
+            console.log("Found that socket directory is not exist now, trying to create it.");
+            try {
+                fs.mkdirSync(socketsDirectory);
+            } catch (err) {
+                console.log(err);
+                process.exit(1);
+            }
         }
 
         console.log(`Set sockets directory ${socketsDirectory}`);
