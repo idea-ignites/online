@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960px" height="1317px" viewBox="0 0 960 1317" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="960" height="1317"></rect>
+        <g id="CollectorDivision" transform="translate(53.000000, 25.000000)">
+            <rect id="Rectangle-3" stroke="#979797" stroke-width="5" fill="#FFFFFF" fill-rule="nonzero" x="2.5" y="2.5" width="877" height="438"></rect>
+            <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="39" y="53" width="329" height="205"></rect>
+            <rect id="Rectangle-2" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="421" y="45" width="411" height="284"></rect>
+            <g id="Class" transform="translate(58.000000, 81.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="146" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="14" y="30">Heartbeats</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(58.000000, 156.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="146" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="14" y="30">Identities</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(469.000000, 210.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="146" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="14" y="30">Gateway</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(258.000000, 113.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="64" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="6.34666667" y="30">Sender</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(469.000000, 63.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="242" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="22.96" y="30">HeartbeatsDataCollector</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(469.000000, 138.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="279" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="26.4133333" y="30">IdentitiesLogsDataCollector</tspan>
+                    </text>
+                </g>
+            </g>
+            <text id="Browser" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                <tspan x="78" y="240">Browser</tspan>
+            </text>
+            <text id="Server" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                <tspan x="479" y="309">Server</tspan>
+            </text>
+            <path d="M229.5,99.5 L229.5,190.5" id="Line" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M259.5,137.5 L230.5,137.5" id="Line-2" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M205.5,99.5 L229.5,99.5" id="Line-3" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M207.5,190.5 L229.5,190.5" id="Line-4" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M325.5,137.5 L441.5,137.5" id="Line-5" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M442.5,137.5 L442.5,243.5" id="Line-6" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M442.5,243.5 L471.5,243.5" id="Line-7" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M785.5,80.5 L785.5,235.5" id="Line-8" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M785.5,80.5 L712.5,80.5" id="Line-10" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M785.5,162.5 L751.5,162.5" id="Line-11" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M617.5,235.5 L784.5,235.5" id="Line-9" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <text id="Collector-Division" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                <tspan x="47" y="408">Collector Division</tspan>
+            </text>
+        </g>
+        <g id="StorageDivision" transform="translate(53.000000, 36.000000)">
+            <path d="M471.5,150.5 L452.5,150.5" id="Line-13" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M452.5,150.5 L452.5,2.5" id="Line-14" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M463.5,77.5 L463.5,17.5" id="Line-15" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <rect id="Rectangle-4" stroke="#979797" stroke-width="5" fill="#FFFFFF" fill-rule="nonzero" x="2.5" y="460.5" width="877" height="365"></rect>
+            <path d="M147.5,656.5 L147.5,689.5" id="Line-26" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M470.5,77.5 L463.5,77.5" id="Line-12" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M464.5,17.5 L846.5,17.5" id="Line-16" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M452.5,1.5 L863.5,1.5" id="Line-17" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M846.5,17.5 L846.5,499.5" id="Line-18" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M863.5,2.5 L863.5,557.5" id="Line-19" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <g id="Class" transform="translate(87.000000, 530.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="250" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="23.7066667" y="30">IdentitiesLogsDataSource</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(363.000000, 530.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="250" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="23.7066667" y="30">HeartbeatsLogsDataSource</tspan>
+                    </text>
+                </g>
+            </g>
+            <path d="M211.5,499.5 L845.5,499.5" id="Line-20" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M616.5,557.5 L861.5,557.5" id="Line-21" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M210.5,499.5 L210.5,532.5" id="Line-22" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <g id="Class" transform="translate(87.000000, 609.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="208" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="19.7866667" y="30">DataManagementSystem</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(87.000000, 688.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="146" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="14" y="30">MongoDB</tspan>
+                    </text>
+                </g>
+            </g>
+            <path d="M150.5,593.5 L473.5,593.5" id="Line-23" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M149.5,578.5 L149.5,611.5" id="Line-24" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M473.5,578.5 L473.5,593.5" id="Line-25" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <text id="Storage-Division" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                <tspan x="55" y="790">Storage Division</tspan>
+            </text>
+        </g>
+        <g id="AnalyticsDivision" transform="translate(1.000000, 693.000000)">
+            <rect id="Rectangle-5" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="54" y="214" width="878" height="374"></rect>
+            <path d="M338.5,328.5 L338.5,354.5" id="Line-39" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M156.5,354.5 L730.5,354.5" id="Line-36" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M156.5,327.5 L156.5,377.5" id="Line-35" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <g id="Class" transform="translate(91.000000, 376.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="146" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="14" y="30">StatsAggregator</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(91.000000, 446.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="181" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="17.2666667" y="30">OnlinesInfoServer</tspan>
+                    </text>
+                </g>
+            </g>
+            <path id="Line-27" d="M0.5,468.5 L14.5,475.5 L14.5,461.5 L0.5,468.5 Z M93.5,467.5 L13.5,467.5 L12.5,467.5 L12.5,469.5 L13.5,469.5 L93.5,469.5 L94.5,469.5 L94.5,467.5 L93.5,467.5 Z" fill="#979797" fill-rule="nonzero"></path>
+            <text id="Analytics-Division" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                <tspan x="106" y="555">Analytics Division</tspan>
+            </text>
+            <path d="M321.5,0.5 L321.5,251.5" id="Line-28" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <g id="Class" transform="translate(94.000000, 280.500000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="146" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="14" y="30">Feature1</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(278.000000, 280.500000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="146" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="14" y="30">Feature2</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(473.000000, 280.500000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="146" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="14" y="30">Feature3</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Class" transform="translate(657.000000, 276.500000)">
+                <g id="Group">
+                    <rect id="Rectangle" stroke="#979797" stroke-width="4" fill="#FFFFFF" fill-rule="nonzero" x="2" y="2" width="146" height="46"></rect>
+                    <text id="Type-something" font-family="FiraCode-Regular, Fira Code" font-size="14" font-weight="normal" fill="#484848">
+                        <tspan x="14" y="30">Feature4</tspan>
+                    </text>
+                </g>
+            </g>
+            <path d="M156.5,252.5 L730.5,252.5" id="Line-29" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M156.5,252.5 L156.5,279.5" id="Line-30" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M338.5,253.5 L338.5,279.5" id="Line-31" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M520.5,253.5 L520.5,279.5" id="Line-32" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M520.5,328.5 L520.5,353.5" id="Line-38" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M730.5,253.5 L730.5,277.5" id="Line-33" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M156.5,426 L156.5,448.5" id="Line-34" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+            <path d="M730.5,354.5 L730.5,325.5" id="Line-37" stroke="#979797" stroke-width="2" stroke-linecap="square" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>
