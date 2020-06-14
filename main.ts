@@ -41,14 +41,15 @@ class OnlineServices {
     }
 
     private configureCaddy() {
-        console.log("Starting to configure caddy...");
-        let caddyConfigurer = new CaddyConfigure();
-        let table = this.routingTable;
-        for (let item of table) {
-            console.log(`Append route: from ${item.from} to ${item.to}`);
-            caddyConfigurer.addReverseProxyRule(item.from, item.to);
-        }
-        console.log("Caddy is now configured.");
+        let caddy = new CaddyConfigure();
+        caddy.setRoutesTable(this.routingTable);
+        caddy.configure()
+            .then(data => console.log('caddy configured.'))
+            .catch(error => {
+                console.log(error);
+                console.log('can\'t configure caddy.');
+                process.exit(1);
+            });
     }
 
     private launchBackends() {

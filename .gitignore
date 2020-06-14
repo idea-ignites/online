@@ -4,3 +4,4 @@ sockets/*
 node_modules
 */*.js
 main.js
+.DS_Store

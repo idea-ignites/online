@@ -1,49 +1,20 @@
+const axios = require('axios');
 const fs = require('fs');
-const { spawn } = require('child_process');
-const EventEmitter = require('events');
-import axios from "axios";
 
 export class CaddyConfigure {
 
-    private localCaddyConfigure = null;
-    private caddyAPIEndPoint = "http://127.0.0.1:2019";
-    private eventEmitter: any;
+    private caddyAPIEndPoint = "http://localhost:2019";
+    private routesTable: any;
 
-    constructor() {
-        this.registerEventHandlers();
-        this.configureHTTPS();
+    public setRoutesTable(routesTable: any) {
+        this.routesTable = routesTable;
     }
 
-    private configureHTTPS() {
-        let onlineServicesServerName = process.env.ONLINE_SERVICES_SERVER_NAME || '';
-        if (onlineServicesServerName) {
-            console.log(`Found server name: ${onlineServicesServerName}, enabling https...`);
-            let configure = this.getLocalConfigure();
-            configure.apps.http.servers.onlineServices.listen.push(":443");
-            configure.apps.http.servers.onlineServices.routes[0].match = [{"host":[onlineServicesServerName]}];
-            let webRoot = process.env.ONLINE_SERVICES_SERVER_WEBROOT || __dirname + "/../frontend/";
-            configure.apps.http.servers.onlineServices.routes[0].handle[0].root = webRoot;
-
-            this.setLocalConfigure(configure);
-        }
+    public getRoutesTable() {
+        return this.routesTable;
     }
 
-    private registerEventHandlers() {
-        let eventEmitter = new EventEmitter();
-        this.eventEmitter = eventEmitter;
-        this.eventEmitter.on('localConfiguresUpdated', () => this.onLocalConfiguresUpdated());
-    }
-
-    private onLocalConfiguresUpdated() {
-        console.log("Noticed that local configures were updated, so upload it to caddy server...");
-        this.uploadLocalConfigureToCaddy();
-    }
-
-    public setCaddyApiEndPoint(apiEndPoint: string) {
-        this.caddyAPIEndPoint = apiEndPoint;
-    }
-
-    private getAxiosInstance() {
+    public req() {
         let instance = axios.create({
             "baseURL": this.caddyAPIEndPoint,
             "headers": { "Content-Type": "application/json" }
@@ -52,101 +23,211 @@ export class CaddyConfigure {
         return instance;
     }
 
-    public async uploadLocalConfigureToCaddy() {
-        let instance = this.getAxiosInstance();
-        let config = this.getLocalConfigure();
-        console.log(`Posting configure: ${JSON.stringify(config)}`);
-        let response = await instance.post("/load", this.getLocalConfigure()).catch(error => console.log(error));
-        return response;
+    public async isCaddyRunning(): Promise<boolean> {
+        let result = await this.req().get("/config/")
+            .then(response => {
+                if ( response.status >= 100 && response.status < 400 ) {
+                    return true;
+                }
+            })
+            .catch(error => {
+                return false;
+            });
+
+        return result;
     }
 
-    public async downloadCaddyConfigureToLocal() {
-        let instance = this.getAxiosInstance();
-        let response = await instance.get("/config/").then(caddyResponse => {
-            this.loadConfigureFromDisk = caddyResponse.data;
-            return caddyResponse.data;
-        });
-        return response;
+    public async isThereHTTPServer(): Promise<boolean|string> {
+        let result = await this.req().get("/config/")
+            .then(response => {
+                if (! response.data) {
+                    return false;
+                }
+                else {
+                    let servers = response.data.apps.http.servers;
+                    return servers;
+                }
+            }).then(data => {
+                for (let serverEntry in data) {
+                    let listens = data[serverEntry].listen;
+                    if (listens.includes(":80") || listens.includes(":443")) {
+                        return serverEntry;
+                    }
+                }
+                return false;
+            }).catch(error => {
+                console.log(error);
+                return false;
+            });
+
+        return result;
     }
 
-    public getLocalConfigure() {
-        if (! this.localCaddyConfigure) {
-            this.setLocalConfigure(this.loadConfigureFromDisk("default"));
+    public async isRoutesConfigured() {
+        let result = await this.req().get("/config")
+            .then(response => response.data)
+            .catch(error => {
+                console.log(error);
+                return false;
+            })
+        
+        
+        if (!result) {
+            return false;
         }
 
-        return this.localCaddyConfigure;
+        let servers = result.apps.http.servers;
+        for (let serverEntry in servers) {
+            let server = servers[serverEntry];
+            let routes = server.routes;
+            for (let route of routes) {
+                if (route?.group === 'linksServices') {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
-    private getTemplate(templateName: string) {
+    public async appendsRoutesToCaddy(serverEntry, routes) {
+        let result = await this .req()
+            .post("/config/apps/http/servers/"+serverEntry+"/routes/...", routes)
+            .then(response => {
+                if (response.status >= 100 && response.status < 400) {
+                    return true;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                return false;
+            });
+        
+        return result;
+    }
+
+    private getLocalConfiguration() {
         try {
-            const data = fs.readFileSync(__dirname + "/caddyConfigureTemplates" + "/" + templateName + ".json", "utf8");
-            return JSON.parse(data);
-        } catch (err) {
-            console.log(err);
-            return null;
+            let data = JSON.parse(fs.readFileSync(__dirname + "/.." + "/configuration.json"));
+            console.log(`data: \n ${data}`);
+            return data;
+        }
+        catch (error) {
+            console.log(error);
+            return {};
         }
     }
 
-    private loadConfigureFromDisk(templateName: string) {
-        return this.getTemplate(templateName);
+    private getServerName() {
+        console.log('getServerName');
+        let envServerName = process.env.LINKS_SERVER_NAME;
+        let configurationFileServerName = this.getLocalConfiguration().serverName;
+        let defaultServerName = 'localhost';
+
+        let serverName = envServerName || configurationFileServerName || defaultServerName;
+        return serverName;
     }
 
-    public async addReverseProxyRule(from: Array<string>, to: string) {
-        console.log(`Try to add route ${from} => ${to} ...`);
 
-        let routeObject = this.reverseProxyRoute(from, to);
+    public getRoutes() {
 
-        let localCaddyConfigure = this.getLocalConfigure();
-        localCaddyConfigure.apps.http.servers.onlineServices.routes.push(routeObject);
-        this.setLocalConfigure(localCaddyConfigure);
+        let serverName = this.getServerName();
+        let routesTable = this.getRoutesTable();
 
-        console.log("Route added.");
-    }
 
-    private setLocalConfigure(configure: any) {
-        this.localCaddyConfigure = configure;
-        console.log('Configures updated.');
-        this.emitEventWithGuarantee('localConfiguresUpdated', 4);
-    }
-
-    private emitEvent(event: string) {
-        return new Promise((resolve, reject) => {
-            console.log(`Emitting event: ${event}`);
-            let result = this.eventEmitter.emit(event);
-            if (result) { 
-                resolve(result);
-                console.log(`${event}: emitted.`);
-            }
-            else {
-                reject(result);
-                console.log(`${event}: no event handler found, will try later.`);
-            }
-        })
-    }
-
-    private emitEventWithGuarantee(event: string, retryAfterSeconds: number) {
-        this.emitEvent(event).catch(rejected => {
-            setTimeout(
-                () => this.emitEventWithGuarantee(event, retryAfterSeconds), 
-                retryAfterSeconds*1000
-            );
+        let routes = [];
+        routes.push({
+            "group": "onlineServices",
+            "match": [{"host": [serverName]}],
+            "handle": [{
+                "handler": "file_server",
+                "root": __dirname + "/.." + "/frontend",
+                "index_names": ["index.html"],
+                "pass_thru": true
+            }]
         });
-    }
 
-    private reverseProxyRoute(from: Array<string>, to: string) {
-        let routeTemplate = this.loadConfigureFromDisk("reverseProxyRoute");
-        if (! routeTemplate) {
-            return;
+        for (let routeRule of routesTable) {
+            routes.push({
+                "group": "onlineServicesReverseProxy",
+                "match": [
+                    {
+                        "path": routeRule?.from,
+                        "host": [serverName]
+                    }
+                ],
+                "handle": [{
+                    "handler": "reverse_proxy",
+                    "upstreams": [{"dial": routeRule?.to}]
+                }]
+            });
         }
 
-        routeTemplate.match = from.map(
-            sourceItem => {
-                return {"path": [sourceItem]}
+        return routes;
+    }
+
+
+    public async putAHTTPServerToCaddy() {
+
+        let server = {
+            "listen": [":80", ":443"],
+            "routes": this.getRoutes()
+        };
+
+        let result = await this.req().put("/config/apps/http/servers/linksServer", server)
+            .then(response => {
+                if ( response.status >= 100 && response.status < 400 ) {
+                    console.log('server created.')
+                    return true;
+                }
+                else {
+                    console.log('server didn\'t create');
+                    return false;
+                }
+            }).catch(error => {
+                console.log(error);
+                return false;
+            })
+
+        return result;
+    }
+
+    public async configure() {
+        let isCaddyRunningCheck = await this.isCaddyRunning();
+        if (!isCaddyRunningCheck) {
+            console.log('caddy is not started yet, please start it.');
+            process.exit(1);
+        }
+
+        let httpEntry = await this.isThereHTTPServer();
+        console.log(`httpEntry ${JSON.stringify(httpEntry)}`);
+        if (!httpEntry) {
+            console.log('found no http server in caddy, try to made one.');
+            let putAServerToCaddyResult = await this.putAHTTPServerToCaddy().then(data => {
+                console.log('now there is a http server in caddy.');
+            }).catch(error => {
+                console.log(error);
+                console.log('can\'t put a http server to caddy.');
+                process.exit(1);
+            });
+            return true;
+        }
+
+        let routesCheck = await this.isRoutesConfigured();
+        if (!routesCheck) {
+            console.log('found no routes pointing to our backends, try to make some');
+
+            let routes = this.getRoutes();
+            let putRoutesToCaddyResult = await this.appendsRoutesToCaddy(httpEntry, routes);
+            if (! putRoutesToCaddyResult) {
+                console.log('we can\'t put routes to caddy.');
+                process.exit(1);
             }
-        );
 
-        routeTemplate.handle[0].upstreams[0].dial = to;
+            console.log('routes created.');
+        }
 
-        return routeTemplate;
+        return true;
     }
 }
+
