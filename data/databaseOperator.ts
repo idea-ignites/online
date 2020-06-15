@@ -10,7 +10,7 @@ export class DatabaseOperator {
 
         try {
             await client.connect();
-            console.log('database connected.');
+            // console.log('database connected.');
         } catch (error) {
             console.log(error);
             console.log('can\'t connect to database');
