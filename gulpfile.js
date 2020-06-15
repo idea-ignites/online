@@ -1,4 +1,4 @@
-const { watch, gulp, series } = require('gulp');
+const { watch, gulp, series, src, dest } = require('gulp');
 const fs = require('fs');
 const ts = require('gulp-typescript');
 const tsProject = ts.createProject('tsconfig.json');
