@@ -7,11 +7,23 @@ const source = require('vinyl-source-stream');
 const browserify = require('browserify');
 const { spawn } = require('child_process');
 
-var serviceProcess = null;
+var serviceProcess;
 
 function onStarted(cb) {
     console.log('spotted file changes, will do response now.');
     cb();
+}
+
+function stopRunningService(cb) {
+    if (serviceProcess === undefined) {
+        cb();
+    }
+    else {
+        console.log('found that service process is running, try to kill it');
+        let result = serviceProcess.kill();
+        console.log(`killed process ${serviceProcess.pid}: ${result}`);
+        cb();
+    }
 }
 
 function buildTS() {
@@ -62,7 +74,14 @@ function tryToStartService(cb) {
 }
 
 function onFilesChanged() {
-    return series(onStarted, buildTS, buildFrontEnd, onComplete, tryToStartService);
+    return series(
+        onStarted, 
+        stopRunningService,
+        buildTS, 
+        buildFrontEnd, 
+        onComplete, 
+        tryToStartService
+    );
 }
 
 exports.default = function() {
