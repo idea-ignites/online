@@ -2,6 +2,10 @@ import { DatabaseOperator } from "./databaseOperator";
 
 export class TimeSeries {
 
+    public getStatsName() {
+        return 'timeSeriesStats';
+    }
+
     // time format is unix epoch (i.e. Integer), unit is milisecond
     // return [{ from: when, to: when, counts: howMany}, ...]
     public async getTimeSeriesData(from: number, to: number, period: number) {
@@ -85,6 +89,13 @@ export class TimeSeries {
 
     public async lastTwoDaysStats() {
         return await this.lastNDayEveryDay(2);
+    }
+
+    public async getStatsData() {
+        return {
+            "lastWeek": this.lastWeekStats,
+            "lastTwoDays": this.lastTwoDaysStats
+        };
     }
 }
 

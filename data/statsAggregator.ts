@@ -1,4 +1,5 @@
 import { OnlinesStats } from "./onlinesInfoStats";
+import { TimeSeries } from "./timeSeries";
 
 export { StatsAggregator }
 
@@ -10,9 +11,11 @@ class StatsAggregator {
 
     private getStatsSource() {
         let onlinesStats = new OnlinesStats();
+        let timeSeries = new TimeSeries();
 
         return [
-            onlinesStats
+            onlinesStats,
+            timeSeries
         ];
     }
 
