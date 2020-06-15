@@ -1,7 +1,6 @@
 {
-    "files": [
-        "*.ts",
-	"*/*.ts"
+    "exclude": [
+        "frontend/src"
     ],
     "compilerOptions": {
         "noImplicitAny": false

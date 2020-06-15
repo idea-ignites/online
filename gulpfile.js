@@ -45,3 +45,5 @@ function onFilesChanged() {
 exports.default = function() {
     watch(["*.ts", "*/*.ts"], { events: 'all' }, onFilesChanged());
 };
+
+exports.build = series(buildTS, buildFrontEnd);
