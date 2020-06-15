@@ -16,7 +16,7 @@ function buildTS() {
 
     return tsProject.src()
     .pipe(tsProject())
-    .js.pipe(gulp.dest('.'));
+    .pipe(dest('.'));
 }
 
 function buildFrontEnd() {
