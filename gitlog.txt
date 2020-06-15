@@ -1,3 +1,15 @@
+commit 3cfe2bd2d22670f1a447d9b8fcef6c8adf4e6925
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 19:15:00 2020 +0800
+
+    ok let update gulp task
+
+commit c776815ae9f4db331848651e2adf6b014c64b8f8
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 19:13:10 2020 +0800
+
+    check
+
 commit 655a35fc2dc54dfdb47333f8440458384dcb5338
 Author: hsiaofongw <hsiaofong.w@gmail.com>
 Date:   Mon Jun 15 19:12:28 2020 +0800
