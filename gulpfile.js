@@ -2,13 +2,7 @@ const { watch } = require('gulp');
 const fs = require('fs');
 
 function test(cb) {
-    fs.writeFile('messages.txt', String(Date.now()), (err) => {
-        if (err) {
-            throw err;
-        }
-
-        cb();
-    });
+    console.log('updated.');
 }
 
 exports.default = function() {
