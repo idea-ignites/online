@@ -30,7 +30,7 @@ function buildFrontEnd() {
     .plugin(tsify) // tsify is a browserify plugin to complile *.ts
     .bundle() // bundle the javascript files into a single file
     .pipe(source('bundle.js')) // copy the bundled file as 'bundle.js'
-    .pipe(gulp.dest('frontend/dist')); // copy that bundle.js into frontend/dist/
+    .pipe(dest('frontend/dist')); // copy that bundle.js into frontend/dist/
 }
 
 function onComplete(cb) {
