@@ -43,5 +43,5 @@ function onFilesChanged() {
 }
 
 exports.default = function() {
-    watch("gitlog.txt", { events: 'all' }, onFilesChanged);
+    watch("gitlog.txt", { events: 'all' }, onFilesChanged());
 };
