@@ -9,3 +9,9 @@
 5. 请求限流，防止滥用，也就是限制每个IP在固定长度的时间窗口内最多可发送的请求次数，这个其实更加基本一些，并且基本上每个API都有，所以我觉得咱们的也要有.
 
 不过，既然从0到1的过程都完成了，说明从1到更多也其实并不难.
+
+### 往期开发日志回顾
+
+- [开发日志写于beta0.8](https://github.com/explorebeyondthestars/onlineServices/blob/testing/documentations/notes/beta0.8.md)
+- [开发日志写于beta0.7](https://github.com/explorebeyondthestars/onlineServices/blob/testing/documentations/notes/beta0.7.md)
+- [开发日志写于beta0.4](https://github.com/explorebeyondthestars/onlineServices/blob/testing/documentations/notes/beta0.4.md)
