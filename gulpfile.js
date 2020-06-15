@@ -1,9 +1,8 @@
 const { watch } = require('gulp');
 const fs = require('fs');
 
-function test(cb) {
+async function test() {
     console.log('updated.');
-    cb();
 }
 
 exports.default = function() {
