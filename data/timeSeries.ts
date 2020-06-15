@@ -88,7 +88,7 @@ export class TimeSeries {
     }
 
     public async lastTwoDaysStats() {
-        return await this.lastNDayEveryDay(2);
+        return await this.lastNDayEveryHour(2);
     }
 
     public async getStatsData() {
