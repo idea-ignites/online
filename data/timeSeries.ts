@@ -93,8 +93,8 @@ export class TimeSeries {
 
     public async getStatsData() {
         return {
-            "lastWeek": this.lastWeekStats,
-            "lastTwoDays": this.lastTwoDaysStats
+            "lastWeek": await this.lastWeekStats(),
+            "lastTwoDays": await this.lastTwoDaysStats()
         };
     }
 }
