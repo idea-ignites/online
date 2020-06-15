@@ -1,56 +1,341 @@
-e944c29 2020-06-15T15:35:17+08:00
-8669ef7 2020-06-15T15:32:35+08:00
-b2800d5 2020-06-15T15:29:44+08:00
-0b8a5d3 2020-06-15T14:35:00+08:00
-1989dc5 2020-06-15T14:33:03+08:00
-1c05ffc 2020-06-15T14:25:33+08:00
-0dea2fd 2020-06-15T14:21:59+08:00
-03fbd07 2020-06-15T14:17:41+08:00
-7200227 2020-06-15T11:11:48+08:00
-0ffc94c 2020-06-15T03:28:40+08:00
-5ed6bfc 2020-06-15T03:25:10+08:00
-317c704 2020-06-15T03:24:40+08:00
-b659ea8 2020-06-15T03:24:10+08:00
-957d1bb 2020-06-15T03:24:00+08:00
-d0242bf 2020-06-15T03:20:58+08:00
-f40f4b5 2020-06-15T03:20:37+08:00
-dc07be5 2020-06-15T03:16:53+08:00
-3575f94 2020-06-15T03:07:45+08:00
-9a68ea4 2020-06-15T02:49:34+08:00
-0260e6d 2020-06-15T02:41:20+08:00
-0cb758b 2020-06-15T02:37:22+08:00
-1fed999 2020-06-15T02:36:27+08:00
-d4592ec 2020-06-15T02:24:39+08:00
-a75d0b6 2020-06-12T22:11:58+08:00
-1567822 2020-06-12T22:10:48+08:00
-a24c3c6 2020-06-12T21:51:17+08:00
-f842045 2020-06-12T21:06:40+08:00
-4fc052e 2020-06-12T20:59:34+08:00
-a1ae4f2 2020-06-12T19:09:25+08:00
-13e991c 2020-06-12T19:07:17+08:00
-50589d5 2020-06-12T19:02:04+08:00
-b0f4e0d 2020-06-12T18:19:08+08:00
-e24c323 2020-06-12T18:17:33+08:00
-f484a71 2020-06-12T18:05:04+08:00
-5d2ece4 2020-06-12T17:32:12+08:00
-90f11fc 2020-06-12T17:11:06+08:00
-8bb41d5 2020-06-12T16:56:57+08:00
-1dc6987 2020-06-12T16:24:10+08:00
-96207e2 2020-06-12T16:14:15+08:00
-5c2be7c 2020-06-12T15:40:09+08:00
-084c38e 2020-06-12T15:15:11+08:00
-1cdf7c9 2020-06-12T13:59:08+08:00
-3a28b76 2020-06-12T13:52:27+08:00
-9e6ef73 2020-06-12T12:38:24+08:00
-d4e2eaa 2020-06-12T00:17:40+08:00
-4fc6755 2020-06-11T21:24:40+08:00
-9cb2aa9 2020-06-11T20:12:01+08:00
-ad71c60 2020-06-11T19:52:00+08:00
-1be0ec3 2020-06-11T19:32:07+08:00
-4c5c88c 2020-06-11T18:04:12+08:00
-526d046 2020-06-11T16:46:01+08:00
-16a28cb 2020-06-11T16:21:35+08:00
-3ee5af5 2020-06-11T16:15:02+08:00
-e20768e 2020-06-11T16:01:51+08:00
-f964f6d 2020-06-11T15:50:46+08:00
-fbbd5df 2020-06-11T15:48:46+08:00
+commit a55a67669cc4d3eea13d665e95f3d8b871d11297
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 17:00:47 2020 +0800
+
+    makeGitLog
+
+commit e944c298f4de6192cefe944b45bfbcaddc3f56ca
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 15:35:17 2020 +0800
+
+    docs update
+
+commit 8669ef79f11ce00f354f09898bc014b85b82003a
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 15:32:35 2020 +0800
+
+    docs update
+
+commit b2800d57fcca71bdabefd4529eed4eb9fcdf07bb
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 15:29:44 2020 +0800
+
+    docs update
+
+commit 0b8a5d33d6240669a5301ba875f63472d7116694
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 14:35:00 2020 +0800
+
+    update
+
+commit 1989dc5742c379838ed50a8535cd7b31e1be378a
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 14:33:03 2020 +0800
+
+    update
+
+commit 1c05ffc87376dfd74dcc4b6660c7903aab5a52f1
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 14:25:33 2020 +0800
+
+    update
+
+commit 0dea2fd34174d2e10ae3835159c650d2b1b5cd41
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 14:21:59 2020 +0800
+
+    update
+
+commit 03fbd07b1bac4b662e8adee39e32828d26e7a9e2
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 14:17:41 2020 +0800
+
+    timeseries
+
+commit 72002279ce197111230a35cdf8b47ede85d0c78c
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 11:11:48 2020 +0800
+
+    databaseOperator
+
+commit 0ffc94c63e5d4d1793f8d1a6c8965a591620f36d
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 03:28:40 2020 +0800
+
+    update docs
+
+commit 5ed6bfca2e9b17f77f8f51b84251f54c7128beff
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 03:25:10 2020 +0800
+
+    update docs
+
+commit 317c704b5f04f7f0940b13ed63b0d4b756929e07
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 03:24:40 2020 +0800
+
+    update docs
+
+commit b659ea8c110636b9b0b3c54628de9099433abc4a
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 03:24:10 2020 +0800
+
+    update docs
+
+commit 957d1bbb30b9ff6df09e09f35fa0b8c4b7e99d5d
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 03:24:00 2020 +0800
+
+    update docs
+
+commit d0242bfc0a9aff95e50225c1ad551f993e82a13d
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 03:20:58 2020 +0800
+
+    update docs
+
+commit f40f4b5dc38b4ca937834cfe5515bcc42e4a8112
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 03:20:37 2020 +0800
+
+    update docs
+
+commit dc07be58cfdb46c9210c0a04c3c59b45287db43b
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 03:16:53 2020 +0800
+
+    update docs
+
+commit 3575f94601a646645ff3792035f6c11116963b08
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 03:07:45 2020 +0800
+
+    update docs
+
+commit 9a68ea4529718e74f11de2657d6df251283f88f4
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 02:49:34 2020 +0800
+
+    update dependencies
+
+commit 0260e6d9b902e6b64691dac42e5c2bc134e6c368
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 02:41:20 2020 +0800
+
+    update
+
+commit 0cb758ba467176169fbb8d6b1d1decd6702820ac
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 02:37:22 2020 +0800
+
+    update
+
+commit 1fed9997a93ada584c9b25cc59ac45ca8a438342
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 02:36:27 2020 +0800
+
+    update
+
+commit d4592ec5cb7c3e0f5acad73d77867c12ae025376
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 02:24:39 2020 +0800
+
+    documentation update
+
+commit a75d0b63f627e301ec2bd9cd662077d3c0e620ef
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 22:11:58 2020 +0800
+
+    updated documentations
+
+commit 1567822a9e90cfc85e7b0c1aa8e1e20b693fdb30
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 22:10:48 2020 +0800
+
+    updated documentations
+
+commit a24c3c6ba2cd404ccfa9190e3e0151fd6271b6ff
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 21:51:17 2020 +0800
+
+    updates stats
+
+commit f842045c27446d071d2d7914276460d72aa3f5dc
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 21:06:40 2020 +0800
+
+    try catch
+
+commit 4fc052edd0b911e2f13d8e4f613e1057fb759976
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 20:59:34 2020 +0800
+
+    update
+
+commit a1ae4f2d4c0dfb63a5db4cab7cd39f8ffb947e41
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 19:09:25 2020 +0800
+
+    updated frontend
+
+commit 13e991cc51ee2bfcbabbbd034b1768b95c59bffa
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 19:07:17 2020 +0800
+
+    publish bundle.js
+
+commit 50589d513034625b3eccc0a48cb8ffc35a69981c
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 19:02:04 2020 +0800
+
+    update to frontend
+
+commit b0f4e0de3b2534f46b3b8aee804346f49dc5e150
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 18:19:08 2020 +0800
+
+    documentation update
+
+commit e24c3238fd36224662d8b6fc79ba2980365feda0
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 18:17:33 2020 +0800
+
+    documentation update
+
+commit f484a7149180314a28989f770d2cc88742e0c682
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 18:05:04 2020 +0800
+
+    new documentation
+
+commit 5d2ece42aa052f6538c6cf87447c3386254ce45a
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 17:32:12 2020 +0800
+
+    some documentations
+
+commit 90f11fcd85b3c95135e05fe9625328e3bcbce937
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 17:11:06 2020 +0800
+
+    re-organize frontend codes
+
+commit 8bb41d5f03fce1591a8dfdc43bc692607ed929f6
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 16:56:57 2020 +0800
+
+    statsAggregator start working
+
+commit 1dc6987f8ad51c58308851dec2de0a73e22676e4
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 16:24:10 2020 +0800
+
+    update
+
+commit 96207e2c721ef37bb0acb6281f5fc9a74e0423b4
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 16:14:15 2020 +0800
+
+    statsAggregator
+
+commit 5c2be7c57f9f5cbe6f9d62444f4f55d24cc3c56b
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 15:40:09 2020 +0800
+
+    seems working
+
+commit 084c38efe8fb9d6453fb4b3742576d5b3877dff0
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 15:15:11 2020 +0800
+
+    documentations
+
+commit 1cdf7c933f713528235294dca23681bbc3792ace
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 13:59:08 2020 +0800
+
+    update
+
+commit 3a28b768660d2540f08fa10f3fd3f954f33521bd
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 13:52:27 2020 +0800
+
+    update
+
+commit 9e6ef7334fe18c80a20f7804b5a8bbec19c55619
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 12:38:24 2020 +0800
+
+    update
+
+commit d4e2eaa081c88d19c9dc4c3f5e85f9cfc5d76811
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Fri Jun 12 00:17:40 2020 +0800
+
+    added emitter
+
+commit 4fc6755c255f24fc1bd5951d56e51411ae254e9a
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 21:24:40 2020 +0800
+
+    update
+
+commit 9cb2aa99cb871d277a7381b2f701290f76493d73
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 20:12:01 2020 +0800
+
+    update
+
+commit ad71c601eb384e18cc8c1ad893c59dffb3d7e03e
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 19:52:00 2020 +0800
+
+    templates
+
+commit 1be0ec3ba317f4783fb52086fd96a6105b0954e8
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 19:32:07 2020 +0800
+
+    caddy control
+
+commit 4c5c88cef3ea26a6c5297cca8e348add49738046
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 18:04:12 2020 +0800
+
+    update
+
+commit 526d046f99a09006f17237cf01f84ad4a4b4c2c9
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 16:46:01 2020 +0800
+
+    caddy
+
+commit 16a28cb020dffd5b6e523409180cd78adb289254
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 16:21:35 2020 +0800
+
+    update
+
+commit 3ee5af560680202ea3fe19b46e3e7a76e1b8610f
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 16:15:02 2020 +0800
+
+    update
+
+commit e20768efa295937c38a67e85d9010fbe9c45056a
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 16:01:51 2020 +0800
+
+    update
+
+commit f964f6d3f23be2518dce76d5c0bf56ade5571a19
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 15:50:46 2020 +0800
+
+    update
+
+commit fbbd5dff452af2207ae5b6eca8ab22fc4ff58b30
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Thu Jun 11 15:48:46 2020 +0800
+
+    project start
