@@ -11,3 +11,10 @@
 Git Hook的妙用可不止是在自动向CI服务器发送信号启动编译程序，Git Hook具体是分好多个，是在不同的阶段执行的，客户端有客户端的触发器，服务端也有服务端的触发器，Git确实还有好多功能值得我们去发掘，比如说，向是在Telegram频道/群组推送项目的提交信息啊，向是检查提交内容和提交评论啊，都可以用Git Hook很容易的做到，你可以用shell语言编写触发器脚本，也可以用JavaScript，Python或者Perl编写触发器脚本，也可以用其他语言编写触发器脚本，总之是很方便的.
 
 以后提交代码就不再用登录服务器去手动重启服务查看效果了，开发进度应该可以变快.
+
+### 往期开发日志回顾
+
+- [开发日志写于beta0.9](https://github.com/explorebeyondthestars/onlineServices/blob/testing/documentations/notes/beta0.9.md)
+- [开发日志写于beta0.8](https://github.com/explorebeyondthestars/onlineServices/blob/testing/documentations/notes/beta0.8.md)
+- [开发日志写于beta0.7](https://github.com/explorebeyondthestars/onlineServices/blob/testing/documentations/notes/beta0.7.md)
+- [开发日志写于beta0.4](https://github.com/explorebeyondthestars/onlineServices/blob/testing/documentations/notes/beta0.4.md)
