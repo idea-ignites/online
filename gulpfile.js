@@ -5,6 +5,9 @@ const tsProject = ts.createProject('tsconfig.json');
 const tsify = require('tsify');
 const source = require('vinyl-source-stream');
 const browserify = require('browserify');
+const { spawn } = require('child_process');
+
+var serviceProcess = null;
 
 function onStarted(cb) {
     console.log('spotted file changes, will do response now.');
@@ -34,12 +37,32 @@ function buildFrontEnd() {
 }
 
 function onComplete(cb) {
-    console.log('all done.');
+    console.log('all built.');
+    cb();
+}
+
+function tryToStartService(cb) {
+    console.log("try to start service...");
+
+    serviceProcess = spawn('node', ['main.js']);
+
+    serviceProcess.stdout.on('data', (data) => {
+        console.log(`service stdout: ${data}`);
+    });
+
+    serviceProcess.stderr.on('data', (data) => {
+        console.log(`service stderr: ${data}`);
+    });
+
+    serviceProcess.on('close', (code) => {
+        console.log(`service process exited with code ${code}`);
+    });
+
     cb();
 }
 
 function onFilesChanged() {
-    return series(onStarted, buildTS, buildFrontEnd, onComplete);
+    return series(onStarted, buildTS, buildFrontEnd, onComplete, tryToStartService);
 }
 
 exports.default = function() {
