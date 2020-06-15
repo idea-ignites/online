@@ -1,3 +1,15 @@
+commit a875061e376363696086c90dbd1a7ac4fce9890b
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 18:35:07 2020 +0800
+
+    update gulpfile.js
+
+commit 07c610173897d75b9d395ec5045f7a94f39de896
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 18:32:23 2020 +0800
+
+    test6
+
 commit 4c25bb402871544042fa042a95df59133978f8e3
 Author: hsiaofongw <hsiaofong.w@gmail.com>
 Date:   Mon Jun 15 18:30:47 2020 +0800
