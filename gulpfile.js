@@ -43,5 +43,5 @@ function onFilesChanged() {
 }
 
 exports.default = function() {
-    watch("gitlog.txt", { events: 'all' }, onFilesChanged());
+    watch(["*.ts", "*/*.ts"], { events: 'all' }, onFilesChanged());
 };
