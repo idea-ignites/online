@@ -10,10 +10,10 @@
   "license": "ISC",
   "devDependencies": {
     "@types/mongodb": "^3.5.20",
-    "mongodb-typescript": "^2.2.0",
     "browserify": "^16.5.1",
     "gulp": "^4.0.2",
     "gulp-typescript": "^6.0.0-alpha.1",
+    "mongodb-typescript": "^2.2.0",
     "tsify": "^4.0.2",
     "typescript": "^3.9.5",
     "vinyl-source-stream": "^2.0.0"

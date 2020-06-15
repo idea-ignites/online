@@ -1,0 +1,8 @@
+{
+    "files": [
+        "main.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": false
+    }
+}
