@@ -1,3 +1,9 @@
+commit a65273cdb8011a511935980ef3e0b876506d0237
+Author: hsiaofongw <hsiaofong.w@gmail.com>
+Date:   Mon Jun 15 18:40:15 2020 +0800
+
+    why the file watch dosen't work?
+
 commit 0c0ff65ade8ad2b8451682dc14543388f162448f
 Author: hsiaofongw <hsiaofong.w@gmail.com>
 Date:   Mon Jun 15 18:37:36 2020 +0800
