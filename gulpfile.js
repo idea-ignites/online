@@ -7,5 +7,5 @@ function test(cb) {
 }
 
 exports.default = function() {
-    watch("test.txt", test);
+    watch("gitlog.txt", test);
 };
