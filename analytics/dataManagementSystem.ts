@@ -54,35 +54,13 @@ export class DataManagementSystem {
     public async getReadableStream(collectionName: string, condition: any) {
         let db = await this.connect();
         let collection = db.collection(collectionName);
-
         let readable = collection.find(condition);
-        readable.on('close', () => {
-            console.log('closing db conn');
+
+        readable.on('end', () => {
             this.close();
         });
 
         return readable;
-    }
-
-    public async test() {
-        let db = await this.connect();
-        let collection = db.collection('heartbeats');
-        let cursor = collection.find({});
-        let writable = new Writable({
-            objectMode: true,
-            write (chunk, encoding, next) {
-                console.log(JSON.stringify(chunk, null, 2));
-                next();
-            }
-        });
-        cursor.on('close', () => {
-            console.log('closing db conn');
-        });
-        cursor.pipe(writable);
-        cursor.on('end', () => {
-            console.log('no more data to be read');
-            this.close();
-        });
     }
 
     public close() {
@@ -91,23 +69,17 @@ export class DataManagementSystem {
 
 }
 
-// let dms = new DataManagementSystem();
-// dms.test();
-
 // async function test() {
 //     let dms = new DataManagementSystem();
 //     let readable = await dms.getReadableStream("heartbeats", {});
 //     let writable = new Writable({
+//         objectMode: true,
 //         write(doc, encoding, next) {
-//             console.log(doc.toString);
+//             console.log(JSON.stringify(doc,null,4));
 //             next();
 //         }
 //     });
 //     readable.pipe(writable);
-//     readable.on('end', () => {
-//         console.log('no more data to be read');
-//         readable.destroy();
-//     });
 // }
 
 // test();
