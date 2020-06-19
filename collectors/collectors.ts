@@ -138,7 +138,6 @@ export class HeartbeatsDataCollectorServer extends CollectorServer implements Al
 
 export class IdentitiesLogsDataCollectorServer extends CollectorServer implements AllocatableServer {
 
-    private logs = [];
     private resourceDeclaration: any;
     private keyStorage: any;
     private keyLogs: any;
@@ -258,16 +257,16 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer implement
         let userAgent = this.getUserAgent(req);
         let origin = this.getOrigin(req);
 
-        this.logs.push({
+        this.appendLog({
             "purpose": purpose,
             "datetime": datetime,
             "identity": identity,
-            "passed": result,
+            "ok": result,
             "serialNumber": uuidv4(),
             "ipAddr": ipAddr,
             "userAgent": userAgent,
             "origin": origin
-        });
+        })
     }
     
     private makeUUIDObject() {
@@ -320,30 +319,7 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer implement
 
 }
 
-
-// let heartbeats = new HeartbeatsDataCollectorServer();
-
-// heartbeats.appendLog(JSON.stringify({
-//     "name": "mike",
-//     "age": 15,
-//     "gender": "male"
-// }));
-
-// heartbeats.appendLog(JSON.stringify({
-//     "name": "wayne",
-//     "age":20,
-//     "gender": "male"
-// }));
-
-// let hbs =  new HeartbeatsDataCollectorServer();
-// hbs.appendLog({"test": "testLog"});
-
+// let hbs = new HeartbeatsDataCollectorServer();
 // let ids = new IdentitiesLogsDataCollectorServer();
-// ids.appendLog({"test":123});
-
-// let testUUID = {
-    // "uuid": "123",
-    // "checkSum": "456"
-// };
-
-// ids.verifyUUIDObject(testUUID);
+// hbs.start();
+// ids.start();

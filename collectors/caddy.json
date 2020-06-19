@@ -1,0 +1,35 @@
+{
+    "apps": {
+        "http": {
+            "servers": {
+                "testServer": {
+                    "listen": [":2918"],
+                    "routes": [
+                        {
+                            "match":[{
+                                "path": ["/identities", "/identities/*"]
+                            }],
+                            "handle": [{
+                                "handler": "reverse_proxy",
+                                "upstreams": [{
+                                    "dial": "unix//Users/mike/onlineServices/collectors/sockets/identities.socket"
+                                }]
+                            }]
+                        },
+                        {
+                            "match": [{
+                                "path": ["/heartbeats", "/heartbeats/*"]
+                            }],
+                            "handle": [{
+                                "handler": "reverse_proxy",
+                                "upstreams": [{
+                                    "dial": "unix//Users/mike/onlineServices/collectors/sockets/heartbeats.socket"
+                                }]
+                            }]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
