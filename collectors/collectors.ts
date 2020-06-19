@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
-import { Readable } from "stream";
+import { Writable, Readable } from "stream";
 import { DataManagementSystem } from "../analytics/dataManagementSystem";
 import crypto = require('crypto');
 
@@ -14,36 +14,19 @@ export interface AllocatableServer {
 }
 
 export class CollectorServer {
-    public connected = false;
-    public logStream: Readable;
-
-    constructor() {
-        this.initialize();
-    }
-
-    private async initialize() {
-        this.logStream = new Readable({
-            read() {}
-        });
-    }
+    public logStream: Writable;
 
     public async appendLog(logObject) {
-        if (! this.connected) {
-            await this.connectToStorage();
+        if (this.logStream === undefined) {
+            let dms = new DataManagementSystem();
+            this.logStream = await dms.getWritableStream(this.getName());
         }
 
-        this.logStream.push(JSON.stringify(logObject));
+        this.logStream.write(logObject);
     }
 
     public getName() {
         return "unnamedServer";
-    }
-
-    private async connectToStorage() {
-        let dms = new DataManagementSystem();
-        let logStorageEntryStream = await dms.getWritableStream(this.getName());
-
-        this.logStream.pipe(logStorageEntryStream);
     }
 
     public getSocketName() {
@@ -139,8 +122,7 @@ export class HeartbeatsDataCollectorServer extends CollectorServer implements Al
 export class IdentitiesLogsDataCollectorServer extends CollectorServer implements AllocatableServer {
 
     private resourceDeclaration: any;
-    private keyStorage: any;
-    private keyLogs: any;
+    private keyStorage: Writable;
     private keyObject: any;
 
     public async start(): Promise<boolean> {
@@ -174,15 +156,7 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer implement
             this.keyStorage = await dms.getWritableStream(collectionName);
         }
 
-        if (this.keyLogs === undefined) {
-            this.keyLogs = new Readable({
-                read() {}
-            });
-
-            this.keyLogs.pipe(this.keyStorage);
-        }
-
-        this.keyLogs.push(JSON.stringify(keyObject));
+        this.keyStorage.write(keyObject);
     }
 
     private makeMasterKey() {
@@ -319,7 +293,7 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer implement
 
 }
 
-// let hbs = new HeartbeatsDataCollectorServer();
-// let ids = new IdentitiesLogsDataCollectorServer();
-// hbs.start();
-// ids.start();
+let hbs = new HeartbeatsDataCollectorServer();
+let ids = new IdentitiesLogsDataCollectorServer();
+hbs.start();
+ids.start();

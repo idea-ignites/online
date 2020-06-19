@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from  'uuid';
-import { Writable } from 'stream';
+import { Writable, Readable } from 'stream';
 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
@@ -27,13 +27,20 @@ export class DataManagementSystem {
         let db = await this.connect();
         let collection = db.collection(collectionName);
 
+        let client = this.client;
+
         let writable = new Writable({
+            objectMode: true,
+
             async write (chunk, encoding, next) {
-                let chunkObject = JSON.parse(chunk.toString());
+                if (!client.isConnected) {
+                    await client.connect();
+                }
 
                 try {
-                    let result = await collection.insertOne(chunkObject);
+                    let result = await collection.insertOne(chunk);
                     assert.equal(1, result.insertedCount);
+                    next();
                 }
                 catch (error) {
                     console.log(error);
@@ -44,8 +51,63 @@ export class DataManagementSystem {
         return writable;
     }
 
+    public async getReadableStream(collectionName: string, condition: any) {
+        let db = await this.connect();
+        let collection = db.collection(collectionName);
+
+        let readable = collection.find(condition);
+        readable.on('close', () => {
+            console.log('closing db conn');
+            this.close();
+        });
+
+        return readable;
+    }
+
+    public async test() {
+        let db = await this.connect();
+        let collection = db.collection('heartbeats');
+        let cursor = collection.find({});
+        let writable = new Writable({
+            objectMode: true,
+            write (chunk, encoding, next) {
+                console.log(JSON.stringify(chunk, null, 2));
+                next();
+            }
+        });
+        cursor.on('close', () => {
+            console.log('closing db conn');
+        });
+        cursor.pipe(writable);
+        cursor.on('end', () => {
+            console.log('no more data to be read');
+            this.close();
+        });
+    }
+
     public close() {
         this.client.close();
     }
 
 }
+
+// let dms = new DataManagementSystem();
+// dms.test();
+
+// async function test() {
+//     let dms = new DataManagementSystem();
+//     let readable = await dms.getReadableStream("heartbeats", {});
+//     let writable = new Writable({
+//         write(doc, encoding, next) {
+//             console.log(doc.toString);
+//             next();
+//         }
+//     });
+//     readable.pipe(writable);
+//     readable.on('end', () => {
+//         console.log('no more data to be read');
+//         readable.destroy();
+//     });
+// }
+
+// test();
