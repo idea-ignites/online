@@ -14,4 +14,4 @@ class OnlineServicesFrontendEntry {
 }
 
 let entry = new OnlineServicesFrontendEntry();
-window.addEventListener("load", event => entry.onLoaded(event));
+window.addEventListener("DOMContentLoaded", event => entry.onLoaded(event));
