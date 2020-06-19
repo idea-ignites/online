@@ -1,4 +1,4 @@
-import { HeartbeatsDataCollectorServer } from "./collectors/heartbeatsDataCollectorServer";
+import { HeartbeatsDataCollectorServer } from "./collectors/collectors";
 import { IdentitiesLogsDataCollectorServer } from "./collectors/identitiesLogsDataCollectorServer";
 import { OnlinesInfoServer } from "./analytics/onlinesInfoServer";
 

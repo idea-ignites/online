@@ -5,7 +5,7 @@ import { Readable } from "stream";
 import { DataManagementSystem } from "../analytics/dataManagementSystem";
 import crypto = require('crypto');
 
-interface AllocatableServer {
+export interface AllocatableServer {
     getName(): string;
 
     start(): Promise<boolean>;
@@ -32,7 +32,7 @@ export class CollectorServer {
             await this.connectToStorage();
         }
 
-        this.logStream.push(logObject);
+        this.logStream.push(JSON.stringify(logObject));
     }
 
     public getName() {
@@ -45,6 +45,14 @@ export class CollectorServer {
 
         this.logStream.pipe(logStorageEntryStream);
     }
+
+    public getSocketName() {
+        return __dirname + "/sockets/" + this.getName() + ".socket";
+    }
+
+    public onServerStarted(path: string): void {
+        console.log(`Server ${this.getName()} started at ${path}`);
+    }
 }
 
 export class HeartbeatsDataCollectorServer extends CollectorServer implements AllocatableServer {
@@ -55,10 +63,6 @@ export class HeartbeatsDataCollectorServer extends CollectorServer implements Al
         await this.listen();
         this.onServerStarted(this.getSocketName());
         return true;
-    }
-
-    private onServerStarted(path: string): void {
-        console.log(`Server ${this.getName()} started at ${path}`);
     }
 
     public getName(): string {
@@ -132,15 +136,70 @@ export class HeartbeatsDataCollectorServer extends CollectorServer implements Al
     }
 }
 
-export class IdentitiesLogsDataCollectorServer extends CollectorServer {
+export class IdentitiesLogsDataCollectorServer extends CollectorServer implements AllocatableServer {
 
-    private masterSecret: string;
     private logs = [];
     private resourceDeclaration: any;
-    private app: any;
+    private keyStorage: any;
+    private keyLogs: any;
+    private keyObject: any;
+
+    public async start(): Promise<boolean> {
+        await this.listen();
+        this.onServerStarted(this.getSocketName());
+        return true;
+    }
+
+    private listen() {
+        const app = express();
+        this.registerRoutes(app);
+
+        return new Promise((resolve, reject) => {
+
+            let path = this.getSocketName();
+            let server = app.listen(path, () => resolve(true));
+
+            server.on('error', (e) => {
+                console.log(e);
+                process.exit(1);
+            });
+
+        });
+    }
+
+    private async appendNewKey(keyObject) {
+        let collectionName = "identityMasterKeys";
+
+        if (this.keyStorage === undefined) {
+            let dms = new DataManagementSystem();
+            this.keyStorage = await dms.getWritableStream(collectionName);
+        }
+
+        if (this.keyLogs === undefined) {
+            this.keyLogs = new Readable({
+                read() {}
+            });
+
+            this.keyLogs.pipe(this.keyStorage);
+        }
+
+        this.keyLogs.push(JSON.stringify(keyObject));
+    }
+
+    private makeMasterKey() {
+        return {
+            "masterKey": uuidv4(),
+            "datetime": Date.now()
+        };
+    }
 
     private getMasterSecret(): string {
-        return '';
+        if (this.keyObject === undefined) {
+            this.keyObject = this.makeMasterKey();
+            this.appendNewKey(this.keyObject);
+        }
+
+        return this.keyObject.masterKey;
     }
 
     public getName() {
@@ -154,13 +213,7 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer {
         };
     }
 
-    public getSocketName() {
-        return __dirname + "/sockets/" + this.getName() + ".socket";
-    }
-
-    private registerRoutes() {
-        const app = express();
-
+    private registerRoutes(app) {
         app.use(
             bodyParser.json({
                 type: "application/json"
@@ -177,13 +230,6 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer {
         ];
 
         app.post('/identities', (req, res) => this.onIdentitiesRequest(req, res));
-
-        this.app = app;
-    }
-
-    public listen(path: number | string) {
-        console.log(`listen ${path}`);
-        this.app.listen(path, () => this.onServerStarted(path));
     }
 
     private errorHandler(err, req, res, next) {
@@ -250,10 +296,6 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer {
         return checkResult;
     }
     
-    private onServerStarted(path: number | string) {
-        console.log(`Server started at ${path}`);
-    }
-
     private getUserAgent(req) {
         let ua = req.headers['User-Agent'] || 
             req.headers['user-agent'] ||
@@ -292,3 +334,16 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer {
 //     "age":20,
 //     "gender": "male"
 // }));
+
+// let hbs =  new HeartbeatsDataCollectorServer();
+// hbs.appendLog({"test": "testLog"});
+
+// let ids = new IdentitiesLogsDataCollectorServer();
+// ids.appendLog({"test":123});
+
+// let testUUID = {
+    // "uuid": "123",
+    // "checkSum": "456"
+// };
+
+// ids.verifyUUIDObject(testUUID);
