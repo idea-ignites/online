@@ -1,26 +1,22 @@
 import { DataManagementSystem } from "./dataManagementSystem";
-const assert = require("assert");
+import { Writable, Transform } from "stream";
+
+
 
 export class OnlinesStats {
 
     public async fetchHeartbeatsFromNowToSecondsAgo(seconds: number): Promise<any> {
         let dms = new DataManagementSystem();
-        return await dms.operationOnDatabase(function(db, resolve, reject) {
+        let justNow = Date.now();
+        let secondsAgo = justNow - seconds * 1000;
 
-            let justNow = Date.now();
-            let secondsAgo = justNow - seconds*1000;
+        let readable = await dms.getReadableStream("heartbeats", {
+            "datetime": {
+                "$lte": justNow,
+                "$gte": secondsAgo
+            }
+        });
 
-            let collection = db.collection("heartbeats");
-            // resolve(collection.distinct);
-            collection.distinct(
-                "identity.uuid", 
-                {"datetime": {"$lte": justNow, "$gte": secondsAgo}},
-                function (error, result) {
-                    if (!error) { resolve(result); }
-                    else {reject(error)};
-                }
-            )
-        })
     }
 
     public async howManyPeopleOnlineWithin(seconds: number): Promise<any> {

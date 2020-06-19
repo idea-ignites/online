@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from  'uuid';
-import { Writable, Readable } from 'stream';
+import { Writable, Readable, Transform } from 'stream';
 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
