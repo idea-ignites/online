@@ -1,5 +1,5 @@
 import { Readable, Writable, Transform } from "stream";
-// import { testData } from "./identitiesTestData";
+import { testData } from "./identitiesTestData";
 
 export {
     UUIDExtractor,
@@ -43,6 +43,10 @@ class Count extends Transform {
     _flush(callback) {
         this.push(this.counts);
         callback();
+    }
+
+    getNumber(): number {
+        return this.counts;
     }
 }
 
@@ -92,15 +96,27 @@ class UniqueFilter extends Transform {
 
 }
 
-// let readable = new ObjectInput({});
-// let extractor = new UUIDExtractor({});
-// let uniqueFilter = new UniqueFilter({});
-    
-// for (let item of testData) {
-//     readable.push(item);
-// }
-// readable.push(null);
 
-// let echo = new Echo({});
-// let myCounts = new Count({});
-// readable.pipe(extractor).pipe(uniqueFilter).pipe(myCounts).pipe(echo);
+
+async function test() {
+
+    let readable = new ObjectInput({});
+    let extractor = new UUIDExtractor({});
+    let uniqueFilter = new UniqueFilter({});
+
+    for (let item of testData) {
+        readable.push(item);
+    }
+    readable.push(null);
+
+    let echo = new Echo({});
+    let myCounts = new Count({});
+    let it = readable.pipe(extractor).pipe(uniqueFilter).pipe(myCounts);
+
+    for await (const v of it) {
+        return v;
+    }
+
+}
+
+test().then(d => console.log(d)).catch(e => console.log(e));
