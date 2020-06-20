@@ -5,14 +5,6 @@ import { Writable, Readable } from "stream";
 import { DataManagementSystem } from "../analytics/dataManagementSystem";
 import crypto = require('crypto');
 
-export interface AllocatableServer {
-    getName(): string;
-
-    start(): Promise<boolean>;
-
-    getRoutesTable(): Object;
-}
-
 export class CollectorServer {
     public logStream: Writable;
 
@@ -38,25 +30,13 @@ export class CollectorServer {
     }
 }
 
-export class HeartbeatsDataCollectorServer extends CollectorServer implements AllocatableServer {
-
-    private resourcesDeclaration: any;
-
-    public async start() {
-        await this.listen();
-        this.onServerStarted(this.getSocketName());
-        return true;
-    }
+export class HeartbeatsDataCollectorServer extends CollectorServer {
 
     public getName(): string {
         return "heartbeats";
     }
 
-    public getSocketName(): string {
-        return __dirname + "/sockets/" + this.getName() + ".socket";
-    }
-
-    private listen() {
+    public listen() {
         const app = express();
         this.registerRoutes(app);
 
@@ -73,13 +53,6 @@ export class HeartbeatsDataCollectorServer extends CollectorServer implements Al
         });
     }
 
-    public getRoutesTable(): Object {
-        return {
-            "from": this.resourcesDeclaration,
-            "to": this.getSocketName()
-        };
-    }
-
     private registerRoutes(app: any) {
         app.use(
             bodyParser.json({
@@ -88,10 +61,6 @@ export class HeartbeatsDataCollectorServer extends CollectorServer implements Al
         );
 
         app.post('/heartbeats', (req, res) => this.postHeartbeatshandler(req, res));
-
-        this.resourcesDeclaration = [
-            '/heartbeats'
-        ];
     }
 
     private postHeartbeatshandler(req, res) {
@@ -119,19 +88,13 @@ export class HeartbeatsDataCollectorServer extends CollectorServer implements Al
     }
 }
 
-export class IdentitiesLogsDataCollectorServer extends CollectorServer implements AllocatableServer {
+export class IdentitiesLogsDataCollectorServer extends CollectorServer {
 
     private resourceDeclaration: any;
     private keyStorage: Writable;
     private keyObject: any;
 
-    public async start(): Promise<boolean> {
-        await this.listen();
-        this.onServerStarted(this.getSocketName());
-        return true;
-    }
-
-    private listen() {
+    public listen() {
         const app = express();
         this.registerRoutes(app);
 
@@ -177,13 +140,6 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer implement
 
     public getName() {
         return "identities";
-    }
-
-    public getRoutesTable() {
-        return {
-            "from": this.resourceDeclaration,
-            "to": this.getSocketName()
-        };
     }
 
     private registerRoutes(app) {
@@ -292,8 +248,3 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer implement
     }
 
 }
-
-let hbs = new HeartbeatsDataCollectorServer();
-let ids = new IdentitiesLogsDataCollectorServer();
-hbs.start();
-ids.start();

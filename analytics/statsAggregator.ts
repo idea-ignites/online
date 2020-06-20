@@ -37,17 +37,17 @@ class StatsAggregator {
     public async getData() {
         let maximumDelayMs = 30 * 1000;
         if (computed.length === 0){
-            console.log("there is no any computed reports yet, so we compute");
+            // console.log("there is no any computed reports yet, so we compute");
             await this.computeStats();
             return computed[0];
         }
         else if ((Date.now() - computed[computed.length-1].computedAt) > maximumDelayMs) {
-            console.log("there are some computed reports, but they are outdated");
+            // console.log("there are some computed reports, but they are outdated");
             await this.computeStats();
             return computed[computed.length-1];
         }
         else {
-            console.log("there is a report up to date");
+            // console.log("there is a report up to date");
             return computed[computed.length-1];
         }
     }
