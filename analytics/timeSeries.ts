@@ -1,4 +1,5 @@
-import { DatabaseOperator } from "./databaseOperator";
+import { DataManagementSystem } from "./dataManagementSystem";
+import { createWriteStream } from "fs";
 
 export class TimeSeries {
 
@@ -9,110 +10,105 @@ export class TimeSeries {
     // time format is unix epoch (i.e. Integer), unit is milisecond
     // return [{ from: when, to: when, counts: howMany}, ...]
     public async getTimeSeriesData(from: number, to: number, period: number) {
-        let dbOperator = new DatabaseOperator();
-        let data = await dbOperator.getDB().then(operator => operator(async function(db) {
-            try {
-                let collection = db.collection('heartbeats');
-                let docs = await collection.find({
-                    "datetime": {"$gte": from, "$lt": to}
-                }).sort({"datetime": 1}).toArray();
-
-                return Promise.resolve(docs);
-            } catch (error) {
-                console.log(error);
-                let message = "can't retrieve from database.";
-                console.log(message);
-                return Promise.reject([]);
-            }
-        }));
-
-        let collector = [];
-        for (let item of data) {
-            let t = item?.datetime;
-            if (t >= from && t <= to) {
-                let periodIndex = Math.floor((t - from)/period);
-                if (collector[periodIndex] === undefined) {
-                    collector[periodIndex] = {
-                        "from": from + (period * periodIndex),
-                        "to": from + (period * (periodIndex + 1)),
-                        "uuids": new Set()
-                    }
-                }
-                collector[periodIndex].uuids.add(item.identity.uuid);
-            }
+        if (period <= 60000) { // 60000 ms is 60 i.e. 1 minute
+            period = 60000;  
         }
 
-        if (collector[0] === undefined) {
-            collector[0] = {
-                "from": from,
-                "to": from + period,
-                "uuids": new Set()
-            };
+        if ((to - from) < period) {
+            to = from + period;
         }
 
-        for (let i = 0; i < collector.length; i++) {
-            if (i >= 1 && collector[i] === undefined) {
-                collector[i] = {
-                    "from": (collector[i-1].from) + period,
-                    "to": (collector[i-1].to) + period,
-                    "uuids": new Set()
+        let maxIndex = Math.floor((to - from) / period);
+        to = from + maxIndex *period;
+
+        let dms = new DataManagementSystem();
+        let readable = await dms.getReadableStream('heartbeats', {
+            "datetime": {
+                "$gte": from,
+                "$lt": to
+            }
+        });
+
+        let stats = [];
+        for (let i = 0; i < maxIndex; i++) {
+            if (stats[i] === undefined) {
+                stats[i] = {
+                    "from": from + i * period,
+                    "to": from + (i+1)*period,
+                    "counts": 0,
+                    "uuids": new Set([]),
+                    "identities": []
                 };
             }
-            collector[i].counts = collector[i].uuids.size;
-            delete collector[i].uuids;
         }
 
-        return collector;
+        for await (let doc of readable) {
+            let index = Math.floor((doc.datetime - from)/period);
+            if (! stats[index].uuids.has(doc.identity.uuid)) {
+                stats[index].identities.push(doc);
+            }
+
+            stats[index].uuids.add(doc.identity.uuid);
+            stats[index].counts = stats[index].uuids.size;
+        }
+
+        for (let x of stats) {
+            delete x.uuids;
+        }
+
+        return stats;
     }
 
-    public async lastNDayEveryHour(nDay: number) {
+    public async thisMonthEveryDay() {
         let justNow = Date.now();
         let dayLength = 24*60*60*1000;
-        let from = justNow - nDay*dayLength;
+        let from = justNow - dayLength * 30;
         let to = justNow;
-        let period = 60*60*1000;
+        let period = dayLength;
         return await this.getTimeSeriesData(from, to, period);
     }
-
-    public async lastNDayEveryDay(nDay: number) {
+    
+    public async thisWeekEveryDay() {
         let justNow = Date.now();
         let dayLength = 24*60*60*1000;
-        let from = justNow - nDay*dayLength;
+        let from = justNow - dayLength * 7;
         let to = justNow;
         let period = dayLength;
         return await this.getTimeSeriesData(from, to, period);
     }
 
-    public async lastWeekStats() {
-        return await this.lastNDayEveryDay(7);
+    public async thisDayEveryHour() {
+        let justNow = Date.now();
+        let hourLength = 60*60*1000;
+        let from = justNow - hourLength * 24;
+        let to = justNow;
+        let period = hourLength;
+        return await this.getTimeSeriesData(from, to, period);
     }
 
-    public async lastTwoDaysStats() {
-        return await this.lastNDayEveryHour(2);
+    public async thisHourEveryMinute() {
+        let justNow = Date.now();
+        let minuteLength = 60*1000;
+        let from = justNow - minuteLength * 24;
+        let to = justNow;
+        let period = minuteLength;
+        return await this.getTimeSeriesData(from, to, period);
     }
 
     public async getStatsData() {
         return {
-            "lastWeek": await this.lastWeekStats(),
-            "lastTwoDays": await this.lastTwoDaysStats()
+            "thisMonthEveryDay": await this.thisMonthEveryDay(),
+            "thisWeekEveryDay": await this.thisWeekEveryDay(),
+            "thisDayEveryHour": await this.thisDayEveryHour(),
+            "thisHourEveryMinute": await this.thisHourEveryMinute()
         };
     }
 }
 
 // let ts = new TimeSeries();
-// async function test() {
-//     await ts.lastNDayEveryDay(10)
-//         .then(data => console.log(data))
-//         .catch(error => console.log(error));
-
-//     await ts.lastNDayEveryHour(1)
-//         .then(data => console.log(data))
-//         .catch(error => console.log(error));
-
-//     await ts.lastNDayEveryHour(2)
-//         .then(data => console.log(data))
-// }
-
-// test();
+// ts.getStatsData().then(data => {
+    // let wStream = createWriteStream("output.json");
+    // wStream.write(JSON.stringify(data, null, 4));
+// }).catch(e => console.log(e));
     
           
