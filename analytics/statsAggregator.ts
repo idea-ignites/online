@@ -54,33 +54,33 @@ class StatsAggregator {
 
 }
 
-async function test() {
-    console.log((new Date()).toString());
-    let stats = new StatsAggregator();
-    let data1 = await stats.getData().catch(e => console.log(e));
-    console.log("data1");
-    console.log(JSON.stringify(data1, null, 4));
+// async function test() {
+//     console.log((new Date()).toString());
+//     let stats = new StatsAggregator();
+//     let data1 = await stats.getData().catch(e => console.log(e));
+//     console.log("data1");
+//     console.log(JSON.stringify(data1, null, 4));
 
-    let wp1 = new Promise((resolve, reject) => {
-        setTimeout(() => resolve(Date.now()), 32*1000);
-    });
+//     let wp1 = new Promise((resolve, reject) => {
+//         setTimeout(() => resolve(Date.now()), 32*1000);
+//     });
 
-    await wp1;
-    console.log((new Date()).toString());
-    let data2 = await stats.getData().catch(e => console.log(e));
-    console.log("data2");
-    console.log(JSON.stringify(data2, null, 4));
+//     await wp1;
+//     console.log((new Date()).toString());
+//     let data2 = await stats.getData().catch(e => console.log(e));
+//     console.log("data2");
+//     console.log(JSON.stringify(data2, null, 4));
 
-    let wp2 = new Promise((resolve, reject) => {
-        setTimeout(() => resolve(Date.now()), 4*1000);
-    });
+//     let wp2 = new Promise((resolve, reject) => {
+//         setTimeout(() => resolve(Date.now()), 4*1000);
+//     });
 
-    await wp2;
-    console.log((new Date()).toString());
-    let data3 = await stats.getData().catch(e => console.log(e));
-    console.log("data3");
-    console.log(JSON.stringify(data3, null, 4));
+//     await wp2;
+//     console.log((new Date()).toString());
+//     let data3 = await stats.getData().catch(e => console.log(e));
+//     console.log("data3");
+//     console.log(JSON.stringify(data3, null, 4));
 
-}
+// }
 
-test();
+// test();
