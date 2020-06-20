@@ -7,7 +7,7 @@ let identities = new IdentitiesLogsDataCollectorServer();
 let onlines = new OnlinesInfoServer();
 
 let socketDir = "sockets/";
-let socketPathPrefix = "unix/" + __dirname + "/" + socketDir;
+let socketPathPrefix = __dirname + "/" + socketDir;
 
 heartbeats.listen(`${socketPathPrefix}${heartbeats.getName}.socket`);
 identities.listen(`${socketPathPrefix}${identities.getName}.socket`);

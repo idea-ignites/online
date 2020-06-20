@@ -4,6 +4,8 @@ const { v4: uuidv4 } = require('uuid');
 import { Writable, Readable } from "stream";
 import { DataManagementSystem } from "../analytics/dataManagementSystem";
 import crypto = require('crypto');
+import * as util from "util";
+import * as fs from "fs";
 
 export class CollectorServer {
     public logStream: Writable;
@@ -17,7 +19,7 @@ export class CollectorServer {
         this.logStream.write(logObject);
     }
 
-    public getName() {
+    public getName(): string {
         return "unnamedServer";
     }
 
@@ -28,21 +30,20 @@ export class CollectorServer {
     public onServerStarted(path: string): void {
         console.log(`Server ${this.getName()} started at ${path}`);
     }
-}
 
-export class HeartbeatsDataCollectorServer extends CollectorServer {
+    public registerRoutes(app): void {}
 
-    public getName(): string {
-        return "heartbeats";
-    }
-
-    public listen() {
+    public async listen(path) {
         const app = express();
         this.registerRoutes(app);
 
+        let checkAndDelete = util.promisify(fs.stat);
+        await checkAndDelete(path)
+            .then(x => fs.unlinkSync(path))
+            .catch(e =>  console.log(e));
+
         return new Promise((resolve, reject) => {
 
-            let path = this.getSocketName();
             let server = app.listen(path, () => resolve(true));
 
             server.on('error', (e) => {
@@ -52,8 +53,15 @@ export class HeartbeatsDataCollectorServer extends CollectorServer {
 
         });
     }
+}
 
-    private registerRoutes(app: any) {
+export class HeartbeatsDataCollectorServer extends CollectorServer {
+
+    public getName(): string {
+        return "heartbeats";
+    }
+
+    public registerRoutes(app: any) {
         app.use(
             bodyParser.json({
                 type: "application/json"
@@ -90,26 +98,8 @@ export class HeartbeatsDataCollectorServer extends CollectorServer {
 
 export class IdentitiesLogsDataCollectorServer extends CollectorServer {
 
-    private resourceDeclaration: any;
     private keyStorage: Writable;
     private keyObject: any;
-
-    public listen() {
-        const app = express();
-        this.registerRoutes(app);
-
-        return new Promise((resolve, reject) => {
-
-            let path = this.getSocketName();
-            let server = app.listen(path, () => resolve(true));
-
-            server.on('error', (e) => {
-                console.log(e);
-                process.exit(1);
-            });
-
-        });
-    }
 
     private async appendNewKey(keyObject) {
         let collectionName = "identityMasterKeys";
@@ -142,7 +132,7 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer {
         return "identities";
     }
 
-    private registerRoutes(app) {
+    public registerRoutes(app) {
         app.use(
             bodyParser.json({
                 type: "application/json"
@@ -152,11 +142,6 @@ export class IdentitiesLogsDataCollectorServer extends CollectorServer {
         app.use(
             (err, req, res, next) => this.errorHandler(err, req, res, next)
         );
-
-        this.resourceDeclaration = [
-            '/identitiesLogs',
-            '/identities'
-        ];
 
         app.post('/identities', (req, res) => this.onIdentitiesRequest(req, res));
     }
