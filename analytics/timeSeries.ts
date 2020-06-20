@@ -56,6 +56,8 @@ export class TimeSeries {
             delete x.uuids;
         }
 
+        readable.destroy();
+
         return stats;
     }
 
@@ -105,10 +107,11 @@ export class TimeSeries {
     }
 }
 
-// let ts = new TimeSeries();
-// ts.getStatsData().then(data => {
-    // let wStream = createWriteStream("output.json");
-    // wStream.write(JSON.stringify(data, null, 4));
-// }).catch(e => console.log(e));
+let ts = new TimeSeries();
+ts.getStatsData().then(data => {
+    let ws = createWriteStream("output.json");
+    ws.write(JSON.stringify(data, null, 4));
+    ws.end();
+}).catch(e => console.log(e));
     
           

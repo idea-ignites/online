@@ -1,134 +1,134 @@
 {
     "thisMonthEveryDay": [
         {
-            "from": 1590073826861,
-            "to": 1590160226861,
+            "from": 1590074412637,
+            "to": 1590160812637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590160226861,
-            "to": 1590246626861,
+            "from": 1590160812637,
+            "to": 1590247212637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590246626861,
-            "to": 1590333026861,
+            "from": 1590247212637,
+            "to": 1590333612637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590333026861,
-            "to": 1590419426861,
+            "from": 1590333612637,
+            "to": 1590420012637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590419426861,
-            "to": 1590505826861,
+            "from": 1590420012637,
+            "to": 1590506412637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590505826861,
-            "to": 1590592226861,
+            "from": 1590506412637,
+            "to": 1590592812637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590592226861,
-            "to": 1590678626861,
+            "from": 1590592812637,
+            "to": 1590679212637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590678626861,
-            "to": 1590765026861,
+            "from": 1590679212637,
+            "to": 1590765612637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590765026861,
-            "to": 1590851426861,
+            "from": 1590765612637,
+            "to": 1590852012637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590851426861,
-            "to": 1590937826861,
+            "from": 1590852012637,
+            "to": 1590938412637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1590937826861,
-            "to": 1591024226861,
+            "from": 1590938412637,
+            "to": 1591024812637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591024226861,
-            "to": 1591110626861,
+            "from": 1591024812637,
+            "to": 1591111212637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591110626861,
-            "to": 1591197026861,
+            "from": 1591111212637,
+            "to": 1591197612637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591197026861,
-            "to": 1591283426861,
+            "from": 1591197612637,
+            "to": 1591284012637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591283426861,
-            "to": 1591369826861,
+            "from": 1591284012637,
+            "to": 1591370412637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591369826861,
-            "to": 1591456226861,
+            "from": 1591370412637,
+            "to": 1591456812637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591456226861,
-            "to": 1591542626861,
+            "from": 1591456812637,
+            "to": 1591543212637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591542626861,
-            "to": 1591629026861,
+            "from": 1591543212637,
+            "to": 1591629612637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591629026861,
-            "to": 1591715426861,
+            "from": 1591629612637,
+            "to": 1591716012637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591715426861,
-            "to": 1591801826861,
+            "from": 1591716012637,
+            "to": 1591802412637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591801826861,
-            "to": 1591888226861,
+            "from": 1591802412637,
+            "to": 1591888812637,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1591888226861,
-            "to": 1591974626861,
+            "from": 1591888812637,
+            "to": 1591975212637,
             "counts": 8,
             "identities": [
                 {
@@ -230,20 +230,20 @@
             ]
         },
         {
-            "from": 1591974626861,
-            "to": 1592061026861,
+            "from": 1591975212637,
+            "to": 1592061612637,
             "counts": 20,
             "identities": [
                 {
-                    "_id": "5ee39ae371c54671947934c4",
-                    "receivedAt": 1591974627088,
-                    "serialNumber": "571df5f1-fe68-4bcd-8ec6-0e4a6f58a88a",
+                    "_id": "5ee39d2e71c546719479353e",
+                    "receivedAt": 1591975214395,
+                    "serialNumber": "d49d0c04-8184-4e1d-9b07-985ac762c690",
                     "origin": "http://127.0.0.1:1313",
                     "identity": {
                         "uuid": "ad81b4e7-74ae-4ca7-b5b7-0f0f173ded3b",
                         "checkSum": "7563bd5d4b0055fe8a25b29fede30767c22697285cb12fbac8807403caa53be60fb489d2f31633fd5485cffa37a2667237d3588d8a81abb17176607cd595cd8e"
                     },
-                    "datetime": 1591974626905,
+                    "datetime": 1591975214212,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -477,32 +477,20 @@
             ]
         },
         {
-            "from": 1592061026861,
-            "to": 1592147426861,
+            "from": 1592061612637,
+            "to": 1592148012637,
             "counts": 13,
             "identities": [
                 {
-                    "_id": "5ee4ec6871c5467194793fc5",
-                    "receivedAt": 1592061032008,
-                    "serialNumber": "b6374405-7db6-4f4b-a2c3-c2da5b3673fa",
+                    "_id": "5ee4eeb071c5467194794039",
+                    "receivedAt": 1592061616027,
+                    "serialNumber": "58229ef8-378d-4f91-b2bb-557f054e7431",
                     "origin": "https://beyondstars.xyz",
                     "identity": {
                         "uuid": "068218a2-9469-43c5-97bc-16fa705e7a22",
                         "checkSum": "50a51438f68c3c907b0f6cf41e66260d99054205530d637fe3d41aa668ffc708cfea7c845dd6f5034cff7a25451ed78d866f663d6bb376f9b6c4f94250662ad6"
                     },
-                    "datetime": 1592061031644,
-                    "purpose": "newHeartbeat"
-                },
-                {
-                    "_id": "5ee4ee5e71c5467194794028",
-                    "receivedAt": 1592061534005,
-                    "serialNumber": "064ee485-c4f3-4926-81b7-c1672dae04aa",
-                    "origin": "https://beyondstars.xyz",
-                    "identity": {
-                        "uuid": "",
-                        "checkSum": ""
-                    },
-                    "datetime": 1592061150566,
+                    "datetime": 1592061615646,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -515,6 +503,18 @@
                         "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
                     },
                     "datetime": 1592062878565,
+                    "purpose": "newHeartbeat"
+                },
+                {
+                    "_id": "5ee4fc7f71c546719479439d",
+                    "receivedAt": 1592065150907,
+                    "serialNumber": "846b36ac-04ab-4075-8820-2b678c4a48d2",
+                    "origin": "https://beyondstars.xyz",
+                    "identity": {
+                        "uuid": "",
+                        "checkSum": ""
+                    },
+                    "datetime": 1592065118203,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -640,8 +640,8 @@
             ]
         },
         {
-            "from": 1592147426861,
-            "to": 1592233826861,
+            "from": 1592148012637,
+            "to": 1592234412637,
             "counts": 12,
             "identities": [
                 {
@@ -791,20 +791,20 @@
             ]
         },
         {
-            "from": 1592233826861,
-            "to": 1592320226861,
+            "from": 1592234412637,
+            "to": 1592320812637,
             "counts": 27,
             "identities": [
                 {
-                    "_id": "5ee7906be98411073e402b2b",
-                    "receivedAt": 1592234091421,
-                    "serialNumber": "5887317b-a1d8-4cab-ac88-2d5dc322c476",
+                    "_id": "5ee7929be98411073e402b47",
+                    "receivedAt": 1592234650213,
+                    "serialNumber": "0556fdf9-6a95-4aa2-ae97-381ef0dc593a",
                     "origin": "https://beyondstars.xyz",
                     "identity": {
                         "uuid": "0becc043-669a-4b1d-9170-953c0816232b",
                         "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
                     },
-                    "datetime": 1592234094029,
+                    "datetime": 1592234648830,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -1122,8 +1122,8 @@
             ]
         },
         {
-            "from": 1592320226861,
-            "to": 1592406626861,
+            "from": 1592320812637,
+            "to": 1592407212637,
             "counts": 9,
             "identities": [
                 {
@@ -1237,20 +1237,20 @@
             ]
         },
         {
-            "from": 1592406626861,
-            "to": 1592493026861,
+            "from": 1592407212637,
+            "to": 1592493612637,
             "counts": 5,
             "identities": [
                 {
-                    "_id": "5eea3285e98411073e40754b",
-                    "receivedAt": 1592406661132,
-                    "serialNumber": "a7dcd317-e975-484a-9722-2650bc83e12c",
+                    "_id": "5eea34aee98411073e407580",
+                    "receivedAt": 1592407214220,
+                    "serialNumber": "61fb9f7e-5bdf-4607-8c27-3dc9aa1550a1",
                     "origin": "https://beyondstars.xyz",
                     "identity": {
                         "uuid": "0becc043-669a-4b1d-9170-953c0816232b",
                         "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
                     },
-                    "datetime": 1592406660557,
+                    "datetime": 1592407215272,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -1304,32 +1304,32 @@
             ]
         },
         {
-            "from": 1592493026861,
-            "to": 1592579426861,
+            "from": 1592493612637,
+            "to": 1592580012637,
             "counts": 6,
             "identities": [
                 {
-                    "_id": "5eeb84b8e98411073e408955",
-                    "receivedAt": 1592493239464,
-                    "serialNumber": "9286efd0-aae4-47fd-982d-cf9595915b83",
-                    "origin": "https://beyondstars.xyz",
-                    "identity": {
-                        "uuid": "0becc043-669a-4b1d-9170-953c0816232b",
-                        "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
-                    },
-                    "datetime": 1592493239959,
-                    "purpose": "newHeartbeat"
-                },
-                {
-                    "_id": "5eeb8562e98411073e40896f",
-                    "receivedAt": 1592493410402,
-                    "serialNumber": "631670b2-ff10-479e-b18e-d8ca952b78f7",
+                    "_id": "5eeb862ee98411073e4089b5",
+                    "receivedAt": 1592493613916,
+                    "serialNumber": "7dda96da-a245-4585-94a1-137f1a8daed3",
                     "origin": "https://beyondstars.xyz",
                     "identity": {
                         "uuid": "a915572b-2af5-48f0-8a15-43b6fabac619",
                         "checkSum": "bcbd8fa088442aa4efc5870e0538e4c13cc5dcc3353d93ac8242655aa24eda71f38781cfe7c447c4d18964b6787c598cd243a62d2c877992c8ba9c5f9b35b6c6"
                     },
-                    "datetime": 1592493405731,
+                    "datetime": 1592493613555,
+                    "purpose": "newHeartbeat"
+                },
+                {
+                    "_id": "5eeb8631e98411073e4089b6",
+                    "receivedAt": 1592493617246,
+                    "serialNumber": "ed3c0985-e98d-473d-abd8-efc2b4a937b2",
+                    "origin": "https://beyondstars.xyz",
+                    "identity": {
+                        "uuid": "0becc043-669a-4b1d-9170-953c0816232b",
+                        "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
+                    },
+                    "datetime": 1592493616958,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -1383,8 +1383,8 @@
             ]
         },
         {
-            "from": 1592579426861,
-            "to": 1592665826861,
+            "from": 1592580012637,
+            "to": 1592666412637,
             "counts": 18,
             "identities": [
                 {
@@ -1608,32 +1608,20 @@
     ],
     "thisWeekEveryDay": [
         {
-            "from": 1592061027638,
-            "to": 1592147427638,
+            "from": 1592061613294,
+            "to": 1592148013294,
             "counts": 13,
             "identities": [
                 {
-                    "_id": "5ee4ec6871c5467194793fc5",
-                    "receivedAt": 1592061032008,
-                    "serialNumber": "b6374405-7db6-4f4b-a2c3-c2da5b3673fa",
+                    "_id": "5ee4eeb071c5467194794039",
+                    "receivedAt": 1592061616027,
+                    "serialNumber": "58229ef8-378d-4f91-b2bb-557f054e7431",
                     "origin": "https://beyondstars.xyz",
                     "identity": {
                         "uuid": "068218a2-9469-43c5-97bc-16fa705e7a22",
                         "checkSum": "50a51438f68c3c907b0f6cf41e66260d99054205530d637fe3d41aa668ffc708cfea7c845dd6f5034cff7a25451ed78d866f663d6bb376f9b6c4f94250662ad6"
                     },
-                    "datetime": 1592061031644,
-                    "purpose": "newHeartbeat"
-                },
-                {
-                    "_id": "5ee4ee5e71c5467194794028",
-                    "receivedAt": 1592061534005,
-                    "serialNumber": "064ee485-c4f3-4926-81b7-c1672dae04aa",
-                    "origin": "https://beyondstars.xyz",
-                    "identity": {
-                        "uuid": "",
-                        "checkSum": ""
-                    },
-                    "datetime": 1592061150566,
+                    "datetime": 1592061615646,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -1646,6 +1634,18 @@
                         "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
                     },
                     "datetime": 1592062878565,
+                    "purpose": "newHeartbeat"
+                },
+                {
+                    "_id": "5ee4fc7f71c546719479439d",
+                    "receivedAt": 1592065150907,
+                    "serialNumber": "846b36ac-04ab-4075-8820-2b678c4a48d2",
+                    "origin": "https://beyondstars.xyz",
+                    "identity": {
+                        "uuid": "",
+                        "checkSum": ""
+                    },
+                    "datetime": 1592065118203,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -1771,8 +1771,8 @@
             ]
         },
         {
-            "from": 1592147427638,
-            "to": 1592233827638,
+            "from": 1592148013294,
+            "to": 1592234413294,
             "counts": 12,
             "identities": [
                 {
@@ -1922,20 +1922,20 @@
             ]
         },
         {
-            "from": 1592233827638,
-            "to": 1592320227638,
+            "from": 1592234413294,
+            "to": 1592320813294,
             "counts": 27,
             "identities": [
                 {
-                    "_id": "5ee7906be98411073e402b2b",
-                    "receivedAt": 1592234091421,
-                    "serialNumber": "5887317b-a1d8-4cab-ac88-2d5dc322c476",
+                    "_id": "5ee7929be98411073e402b47",
+                    "receivedAt": 1592234650213,
+                    "serialNumber": "0556fdf9-6a95-4aa2-ae97-381ef0dc593a",
                     "origin": "https://beyondstars.xyz",
                     "identity": {
                         "uuid": "0becc043-669a-4b1d-9170-953c0816232b",
                         "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
                     },
-                    "datetime": 1592234094029,
+                    "datetime": 1592234648830,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -2253,8 +2253,8 @@
             ]
         },
         {
-            "from": 1592320227638,
-            "to": 1592406627638,
+            "from": 1592320813294,
+            "to": 1592407213294,
             "counts": 9,
             "identities": [
                 {
@@ -2368,20 +2368,20 @@
             ]
         },
         {
-            "from": 1592406627638,
-            "to": 1592493027638,
+            "from": 1592407213294,
+            "to": 1592493613294,
             "counts": 5,
             "identities": [
                 {
-                    "_id": "5eea3285e98411073e40754b",
-                    "receivedAt": 1592406661132,
-                    "serialNumber": "a7dcd317-e975-484a-9722-2650bc83e12c",
+                    "_id": "5eea34aee98411073e407580",
+                    "receivedAt": 1592407214220,
+                    "serialNumber": "61fb9f7e-5bdf-4607-8c27-3dc9aa1550a1",
                     "origin": "https://beyondstars.xyz",
                     "identity": {
                         "uuid": "0becc043-669a-4b1d-9170-953c0816232b",
                         "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
                     },
-                    "datetime": 1592406660557,
+                    "datetime": 1592407215272,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -2435,32 +2435,32 @@
             ]
         },
         {
-            "from": 1592493027638,
-            "to": 1592579427638,
+            "from": 1592493613294,
+            "to": 1592580013294,
             "counts": 6,
             "identities": [
                 {
-                    "_id": "5eeb84b8e98411073e408955",
-                    "receivedAt": 1592493239464,
-                    "serialNumber": "9286efd0-aae4-47fd-982d-cf9595915b83",
-                    "origin": "https://beyondstars.xyz",
-                    "identity": {
-                        "uuid": "0becc043-669a-4b1d-9170-953c0816232b",
-                        "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
-                    },
-                    "datetime": 1592493239959,
-                    "purpose": "newHeartbeat"
-                },
-                {
-                    "_id": "5eeb8562e98411073e40896f",
-                    "receivedAt": 1592493410402,
-                    "serialNumber": "631670b2-ff10-479e-b18e-d8ca952b78f7",
+                    "_id": "5eeb862ee98411073e4089b5",
+                    "receivedAt": 1592493613916,
+                    "serialNumber": "7dda96da-a245-4585-94a1-137f1a8daed3",
                     "origin": "https://beyondstars.xyz",
                     "identity": {
                         "uuid": "a915572b-2af5-48f0-8a15-43b6fabac619",
                         "checkSum": "bcbd8fa088442aa4efc5870e0538e4c13cc5dcc3353d93ac8242655aa24eda71f38781cfe7c447c4d18964b6787c598cd243a62d2c877992c8ba9c5f9b35b6c6"
                     },
-                    "datetime": 1592493405731,
+                    "datetime": 1592493613555,
+                    "purpose": "newHeartbeat"
+                },
+                {
+                    "_id": "5eeb8631e98411073e4089b6",
+                    "receivedAt": 1592493617246,
+                    "serialNumber": "ed3c0985-e98d-473d-abd8-efc2b4a937b2",
+                    "origin": "https://beyondstars.xyz",
+                    "identity": {
+                        "uuid": "0becc043-669a-4b1d-9170-953c0816232b",
+                        "checkSum": "7bce2cefa794932f8ab5d7ab9abb0faaa1c3d932d186e0db03a1e3c73e9603e2e569a7ceb6e804e7b02f4f4ab2cd80a011293313bd26c0a201e4e0b9a5eaa0ff"
+                    },
+                    "datetime": 1592493616958,
                     "purpose": "newHeartbeat"
                 },
                 {
@@ -2514,8 +2514,8 @@
             ]
         },
         {
-            "from": 1592579427638,
-            "to": 1592665827638,
+            "from": 1592580013294,
+            "to": 1592666413294,
             "counts": 18,
             "identities": [
                 {
@@ -2739,15 +2739,15 @@
     ],
     "thisDayEveryHour": [
         {
-            "from": 1592579428214,
-            "to": 1592583028214,
+            "from": 1592580013796,
+            "to": 1592583613796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592583028214,
-            "to": 1592586628214,
-            "counts": 5,
+            "from": 1592583613796,
+            "to": 1592587213796,
+            "counts": 16,
             "identities": [
                 {
                     "_id": "5eecf0bfebebe80e2c9787d5",
@@ -2808,14 +2808,7 @@
                         "uuid": "42781946-9140-4fde-b6a2-2e6c46381188",
                         "checkSum": "9b7ec722b04158e884df2ff7f23403f886a784f8eecdedfb938446db54548de648038805a7aae0070959df0bc12c2be394ad25b2679a7679861966f771bc25cd"
                     }
-                }
-            ]
-        },
-        {
-            "from": 1592586628214,
-            "to": 1592590228214,
-            "counts": 11,
-            "identities": [
+                },
                 {
                     "_id": "5eecf370da712f0fc30b3b19",
                     "receivedAt": 1592587120869,
@@ -2951,38 +2944,44 @@
             ]
         },
         {
-            "from": 1592590228214,
-            "to": 1592593828214,
+            "from": 1592587213796,
+            "to": 1592590813796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592593828214,
-            "to": 1592597428214,
+            "from": 1592590813796,
+            "to": 1592594413796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592597428214,
-            "to": 1592601028214,
+            "from": 1592594413796,
+            "to": 1592598013796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592601028214,
-            "to": 1592604628214,
+            "from": 1592598013796,
+            "to": 1592601613796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592604628214,
-            "to": 1592608228214,
+            "from": 1592601613796,
+            "to": 1592605213796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592608228214,
-            "to": 1592611828214,
+            "from": 1592605213796,
+            "to": 1592608813796,
+            "counts": 0,
+            "identities": []
+        },
+        {
+            "from": 1592608813796,
+            "to": 1592612413796,
             "counts": 1,
             "identities": [
                 {
@@ -3000,74 +2999,74 @@
             ]
         },
         {
-            "from": 1592611828214,
-            "to": 1592615428214,
+            "from": 1592612413796,
+            "to": 1592616013796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592615428214,
-            "to": 1592619028214,
+            "from": 1592616013796,
+            "to": 1592619613796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592619028214,
-            "to": 1592622628214,
+            "from": 1592619613796,
+            "to": 1592623213796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592622628214,
-            "to": 1592626228214,
+            "from": 1592623213796,
+            "to": 1592626813796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592626228214,
-            "to": 1592629828214,
+            "from": 1592626813796,
+            "to": 1592630413796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592629828214,
-            "to": 1592633428214,
+            "from": 1592630413796,
+            "to": 1592634013796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592633428214,
-            "to": 1592637028214,
+            "from": 1592634013796,
+            "to": 1592637613796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592637028214,
-            "to": 1592640628214,
+            "from": 1592637613796,
+            "to": 1592641213796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592640628214,
-            "to": 1592644228214,
+            "from": 1592641213796,
+            "to": 1592644813796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592644228214,
-            "to": 1592647828214,
+            "from": 1592644813796,
+            "to": 1592648413796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592647828214,
-            "to": 1592651428214,
+            "from": 1592648413796,
+            "to": 1592652013796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592651428214,
-            "to": 1592655028214,
+            "from": 1592652013796,
+            "to": 1592655613796,
             "counts": 1,
             "identities": [
                 {
@@ -3085,179 +3084,166 @@
             ]
         },
         {
-            "from": 1592655028214,
-            "to": 1592658628214,
-            "counts": 1,
-            "identities": [
-                {
-                    "_id": "5eedfcb7e98411073e40a57e",
-                    "receivedAt": 1592655030914,
-                    "serialNumber": "2f283dc0-5a66-4f6c-9163-185b9cbd92b6",
-                    "origin": "http://127.0.0.1:1313",
-                    "identity": {
-                        "uuid": "ad81b4e7-74ae-4ca7-b5b7-0f0f173ded3b",
-                        "checkSum": "7563bd5d4b0055fe8a25b29fede30767c22697285cb12fbac8807403caa53be60fb489d2f31633fd5485cffa37a2667237d3588d8a81abb17176607cd595cd8e"
-                    },
-                    "datetime": 1592655030519,
-                    "purpose": "newHeartbeat"
-                }
-            ]
-        },
-        {
-            "from": 1592658628214,
-            "to": 1592662228214,
+            "from": 1592655613796,
+            "to": 1592659213796,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592662228214,
-            "to": 1592665828214,
+            "from": 1592659213796,
+            "to": 1592662813796,
+            "counts": 0,
+            "identities": []
+        },
+        {
+            "from": 1592662813796,
+            "to": 1592666413796,
             "counts": 0,
             "identities": []
         }
     ],
     "thisHourEveryMinute": [
         {
-            "from": 1592664388275,
-            "to": 1592664448275,
+            "from": 1592664973854,
+            "to": 1592665033854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664448275,
-            "to": 1592664508275,
+            "from": 1592665033854,
+            "to": 1592665093854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664508275,
-            "to": 1592664568275,
+            "from": 1592665093854,
+            "to": 1592665153854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664568275,
-            "to": 1592664628275,
+            "from": 1592665153854,
+            "to": 1592665213854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664628275,
-            "to": 1592664688275,
+            "from": 1592665213854,
+            "to": 1592665273854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664688275,
-            "to": 1592664748275,
+            "from": 1592665273854,
+            "to": 1592665333854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664748275,
-            "to": 1592664808275,
+            "from": 1592665333854,
+            "to": 1592665393854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664808275,
-            "to": 1592664868275,
+            "from": 1592665393854,
+            "to": 1592665453854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664868275,
-            "to": 1592664928275,
+            "from": 1592665453854,
+            "to": 1592665513854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664928275,
-            "to": 1592664988275,
+            "from": 1592665513854,
+            "to": 1592665573854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592664988275,
-            "to": 1592665048275,
+            "from": 1592665573854,
+            "to": 1592665633854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665048275,
-            "to": 1592665108275,
+            "from": 1592665633854,
+            "to": 1592665693854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665108275,
-            "to": 1592665168275,
+            "from": 1592665693854,
+            "to": 1592665753854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665168275,
-            "to": 1592665228275,
+            "from": 1592665753854,
+            "to": 1592665813854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665228275,
-            "to": 1592665288275,
+            "from": 1592665813854,
+            "to": 1592665873854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665288275,
-            "to": 1592665348275,
+            "from": 1592665873854,
+            "to": 1592665933854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665348275,
-            "to": 1592665408275,
+            "from": 1592665933854,
+            "to": 1592665993854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665408275,
-            "to": 1592665468275,
+            "from": 1592665993854,
+            "to": 1592666053854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665468275,
-            "to": 1592665528275,
+            "from": 1592666053854,
+            "to": 1592666113854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665528275,
-            "to": 1592665588275,
+            "from": 1592666113854,
+            "to": 1592666173854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665588275,
-            "to": 1592665648275,
+            "from": 1592666173854,
+            "to": 1592666233854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665648275,
-            "to": 1592665708275,
+            "from": 1592666233854,
+            "to": 1592666293854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665708275,
-            "to": 1592665768275,
+            "from": 1592666293854,
+            "to": 1592666353854,
             "counts": 0,
             "identities": []
         },
         {
-            "from": 1592665768275,
-            "to": 1592665828275,
+            "from": 1592666353854,
+            "to": 1592666413854,
             "counts": 0,
             "identities": []
         }

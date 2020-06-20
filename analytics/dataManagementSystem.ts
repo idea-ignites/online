@@ -60,6 +60,10 @@ export class DataManagementSystem {
             this.close();
         });
 
+        readable.on('close', () => {
+            this.close();
+        });
+
         return readable;
     }
 
