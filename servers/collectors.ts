@@ -7,7 +7,13 @@ import crypto = require('crypto');
 import * as util from "util";
 import * as fs from "fs";
 
-export class CollectorServer {
+export {
+    CollectorServer,
+    HeartbeatsDataCollectorServer,
+    IdentitiesLogsDataCollectorServer
+};
+
+class CollectorServer {
     public logStream: Writable;
 
     public async appendLog(logObject) {
@@ -55,7 +61,7 @@ export class CollectorServer {
     }
 }
 
-export class HeartbeatsDataCollectorServer extends CollectorServer {
+class HeartbeatsDataCollectorServer extends CollectorServer {
 
     public getName(): string {
         return "heartbeats";
@@ -96,7 +102,7 @@ export class HeartbeatsDataCollectorServer extends CollectorServer {
     }
 }
 
-export class IdentitiesLogsDataCollectorServer extends CollectorServer {
+class IdentitiesLogsDataCollectorServer extends CollectorServer {
 
     private keyStorage: Writable;
     private keyObject: any;

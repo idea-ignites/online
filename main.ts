@@ -1,6 +1,6 @@
-import { HeartbeatsDataCollectorServer } from "./collectors/collectors";
-import { IdentitiesLogsDataCollectorServer } from "./collectors/collectors";
-import { OnlinesInfoServer } from "./analytics/onlinesInfoServer";
+import { HeartbeatsDataCollectorServer } from "./servers/collectors";
+import { IdentitiesLogsDataCollectorServer } from "./servers/collectors";
+import { OnlinesInfoServer } from "./servers/onlinesInfoServer";
     
 let heartbeats = new HeartbeatsDataCollectorServer();
 let identities = new IdentitiesLogsDataCollectorServer();
