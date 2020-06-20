@@ -76,11 +76,11 @@ function tryToStartService(cb) {
 function onFilesChanged() {
     return series(
         onStarted, 
-        stopRunningService,
         buildTS, 
         buildFrontEnd, 
-        onComplete, 
-        tryToStartService
+        stopRunningService,
+        tryToStartService,
+        onComplete
     );
 }
 
