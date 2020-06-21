@@ -12,11 +12,11 @@ export class OnlinesInfoServer extends CollectorServer {
     }
 
     private async onlinesInfoHandler(req, res) {
-        console.log("received incoming request for /onlinesInfo ");
+        // console.log("received incoming request for /onlinesInfo ");
         let statsAggregator = new StatsAggregator();
-        console.log("waiting");
+        // console.log("waiting");
         let data = await statsAggregator.getData();
-        console.log("computed");
+        // console.log("computed");
         console.log(data);
         res.json(data);
     }
