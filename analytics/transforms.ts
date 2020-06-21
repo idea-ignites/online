@@ -1,5 +1,4 @@
 import { Readable, Writable, Transform } from "stream";
-import { testData } from "./identitiesTestData";
 
 export {
     UUIDExtractor,
