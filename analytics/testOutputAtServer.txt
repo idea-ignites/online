@@ -1,0 +1,33 @@
+Sun Jun 21 2020 07:27:03 GMT+0000 (UTC)
+TypeError: Symbol.asyncIterator is not defined.
+    at __asyncValues (/root/online/analytics/onlinesInfoStats.js:39:38)
+    at OnlinesStats.<anonymous> (/root/online/analytics/onlinesInfoStats.js:77:32)
+    at step (/root/online/analytics/onlinesInfoStats.js:33:23)
+    at Object.next (/root/online/analytics/onlinesInfoStats.js:14:53)
+    at fulfilled (/root/online/analytics/onlinesInfoStats.js:5:58)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+data1
+undefined
+Sun Jun 21 2020 07:27:36 GMT+0000 (UTC)
+TypeError: Symbol.asyncIterator is not defined.
+    at __asyncValues (/root/online/analytics/onlinesInfoStats.js:39:38)
+    at OnlinesStats.<anonymous> (/root/online/analytics/onlinesInfoStats.js:77:32)
+    at step (/root/online/analytics/onlinesInfoStats.js:33:23)
+    at Object.next (/root/online/analytics/onlinesInfoStats.js:14:53)
+    at fulfilled (/root/online/analytics/onlinesInfoStats.js:5:58)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+data2
+undefined
+Sun Jun 21 2020 07:27:40 GMT+0000 (UTC)
+TypeError: Symbol.asyncIterator is not defined.
+    at __asyncValues (/root/online/analytics/onlinesInfoStats.js:39:38)
+    at OnlinesStats.<anonymous> (/root/online/analytics/onlinesInfoStats.js:77:32)
+    at step (/root/online/analytics/onlinesInfoStats.js:33:23)
+    at Object.next (/root/online/analytics/onlinesInfoStats.js:14:53)
+    at fulfilled (/root/online/analytics/onlinesInfoStats.js:5:58)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+data3
+undefined
