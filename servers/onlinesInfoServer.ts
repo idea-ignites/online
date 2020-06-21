@@ -1,12 +1,8 @@
 import { StatsAggregator } from "../analytics/statsAggregator";
 import { CollectorServer } from "./collectors";
-
-const express = require('express');
 const bodyParser = require('body-parser');
 
 export class OnlinesInfoServer extends CollectorServer {
-
-    private app: any;
 
     public getName() {
         return "onlinesInfo";

@@ -4,8 +4,6 @@ const { v4: uuidv4 } = require('uuid');
 import { Writable, Readable } from "stream";
 import { DataManagementSystem } from "../analytics/dataManagementSystem";
 import crypto = require('crypto');
-import * as util from "util";
-import * as fs from "fs";
 
 export {
     CollectorServer,
@@ -40,13 +38,10 @@ class CollectorServer {
     public registerRoutes(app): void {}
 
     public async listen(path) {
+        // it is launcher's responsibility to check is that resource available
+
         const app = express();
         this.registerRoutes(app);
-
-        let checkAndDelete = util.promisify(fs.stat);
-        await checkAndDelete(path)
-            .then(x => fs.unlinkSync(path))
-            .catch(e =>  console.log(e));
 
         return new Promise((resolve, reject) => {
 
