@@ -6,9 +6,6 @@ let heartbeats = new HeartbeatsDataCollectorServer();
 let identities = new IdentitiesLogsDataCollectorServer();
 let onlines = new OnlinesInfoServer();
 
-let socketDir = "sockets/";
-let socketPathPrefix = __dirname + "/" + socketDir;
-
-heartbeats.listen(`${socketPathPrefix}${heartbeats.getName}.socket`);
-identities.listen(`${socketPathPrefix}${identities.getName}.socket`);
-onlines.listen(`${socketPathPrefix}${onlines.getName}.socket`);
+heartbeats.listen(3386);
+identities.listen(3387);
+onlines.listen(3388);
