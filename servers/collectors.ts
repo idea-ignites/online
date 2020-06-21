@@ -27,14 +27,11 @@ class CollectorServer {
         return "unnamedServer";
     }
 
-    public getSocketName() {
-        return __dirname + "/sockets/" + this.getName() + ".socket";
-    }
-
     public onServerStarted(path: string): void {
         console.log(`Server ${this.getName()} started at ${path}`);
     }
 
+    // must implement this in subclass
     public registerRoutes(app): void {}
 
     public async listen(path) {

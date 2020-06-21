@@ -1,6 +1,5 @@
 import { StatsAggregator } from "../analytics/statsAggregator";
 import { CollectorServer } from "./collectors";
-const bodyParser = require('body-parser');
 
 export class OnlinesInfoServer extends CollectorServer {
 
@@ -9,13 +8,6 @@ export class OnlinesInfoServer extends CollectorServer {
     }
 
     public registerRoutes(app: any) {
-
-        app.use(
-            bodyParser.json({
-                type: "application/json"
-            })
-        );
-
         app.get('/onlinesInfo', (req, res) => this.onlinesInfoHandler(req, res));
     }
 
