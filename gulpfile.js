@@ -89,3 +89,5 @@ exports.default = function() {
 };
 
 exports.build = series(buildTS, buildFrontEnd);
+
+exports.restart = series(stopRunningService, tryToStartService);
