@@ -3,7 +3,7 @@ import { TimeSeries } from "./timeSeries";
 
 export { StatsAggregator }
 
-var computed = [];
+let computed = undefined;
 
 class StatsAggregator {
 
@@ -26,30 +26,26 @@ class StatsAggregator {
             data[statsName] = statsData;
         }
 
-        computed.push({
+        return {
             "computedAt": Date.now(),
             "data": data
-        });
-
-        return data;
+        };
     }
 
     public async getData() {
         let maximumDelayMs = 30 * 1000;
-        if (computed.length === 0){
-            // console.log("there is no any computed reports yet, so we compute");
-            await this.computeStats();
-            return computed[0];
+
+        if (computed === undefined){
+            // there is no computed report yet, so compute it
+            computed = await this.computeStats();
         }
-        else if ((Date.now() - computed[computed.length-1].computedAt) > maximumDelayMs) {
-            // console.log("there are some computed reports, but they are outdated");
-            await this.computeStats();
-            return computed[computed.length-1];
+        else if ((Date.now() - computed.computedAt) > maximumDelayMs) {
+            // there is computed report, but it is outdated
+            computed = await this.computeStats();
         }
-        else {
-            // console.log("there is a report up to date");
-            return computed[computed.length-1];
-        }
+
+        // there is report up to date
+        return computed;
     }
 
 }
