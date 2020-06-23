@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="797px" height="886px" viewBox="0 0 797 886" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Main</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="160" height="46"></rect>
+        <rect id="path-2" x="0" y="0" width="160" height="46"></rect>
+        <rect id="path-3" x="0" y="0" width="177" height="46"></rect>
+        <rect id="path-4" x="0" y="0" width="204" height="46"></rect>
+        <rect id="path-5" x="0" y="0" width="256" height="46"></rect>
+        <rect id="path-6" x="0" y="0" width="152" height="46"></rect>
+        <rect id="path-7" x="0" y="0" width="152" height="46"></rect>
+        <rect id="path-8" x="0" y="0" width="152" height="46"></rect>
+        <rect id="path-9" x="0" y="0" width="187" height="46"></rect>
+        <rect id="path-10" x="0" y="0" width="204" height="46"></rect>
+    </defs>
+    <g id="Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="797" height="886"></rect>
+        <g id="Analytics" transform="translate(31.000000, 548.000000)">
+            <rect id="Rectangle" stroke="#979797" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" x="1" y="1" width="735" height="305"></rect>
+            <g id="Group-2" transform="translate(54.000000, 35.000000)">
+                <g id="FunctionalUnit">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="158" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-1"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="10.5263158" y="28">OnlineInfoStats</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="FunctionalUnit" transform="translate(204.000000, 0.000000)">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="158" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-2"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="10.5263158" y="28">TimeSeries</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="FunctionalUnit" transform="translate(0.000000, 75.000000)">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="175" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-3"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="11.6447368" y="28">StatsAggregator</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="FunctionalUnit" transform="translate(0.000000, 150.000000)">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="202" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-4"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="13.4210526" y="28">OnlinesInfoServer</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+            <text id="Analytics-Division" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                <tspan x="448" y="275">Analytics Division</tspan>
+            </text>
+        </g>
+        <g id="DataManagement" transform="translate(31.000000, 287.000000)">
+            <rect id="Rectangle" stroke="#979797" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" x="1" y="1" width="735" height="230"></rect>
+            <g id="Group-3" transform="translate(54.000000, 35.000000)">
+                <g id="FunctionalUnit">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="254" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-5"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="16.8421053" y="28">DataManagementSystem</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="FunctionalUnit" transform="translate(0.000000, 75.000000)">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="150" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-6"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="10" y="28">MongoDB</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+            <text id="Data-Management-Divi" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                <tspan x="448" y="200">Data Management Division</tspan>
+            </text>
+        </g>
+        <g id="Collectors" transform="translate(31.000000, 26.000000)">
+            <rect id="Rectangle" stroke="#979797" stroke-width="2" fill="#FFFFFF" fill-rule="nonzero" x="1" y="1" width="735" height="230"></rect>
+            <g id="Group" transform="translate(55.000000, 35.000000)">
+                <g id="FunctionalUnit">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="150" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-7"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="10" y="28">Heartbeats</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="FunctionalUnit" transform="translate(0.000000, 75.000000)">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="150" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-8"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="10" y="28">Identities</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="FunctionalUnit" transform="translate(360.000000, 75.000000)">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="185" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-9"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="12.3026316" y="28">IdentitiesCollector</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="FunctionalUnit" transform="translate(360.000000, 0.000000)">
+                    <g id="Group">
+                        <g id="Rectangle" fill-rule="nonzero" stroke="#979797">
+                            <rect stroke-width="2" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="1" y="1" width="202" height="44"></rect>
+                            <use stroke-width="1" xlink:href="#path-10"></use>
+                        </g>
+                        <text id="Type-something" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                            <tspan x="13.4210526" y="28">HeartbeatsCollector</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+            <text id="Collectors-Division" font-family="ArialMT, Arial" font-size="20" font-weight="normal" fill="#4A4A4A">
+                <tspan x="448" y="200">Collectors Division</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
