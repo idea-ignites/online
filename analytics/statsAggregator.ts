@@ -1,5 +1,6 @@
 import { OnlinesStats } from "./onlinesInfoStats";
 import { TimeSeries } from "./timeSeries";
+import { StatisticalInferences } from "./statisticalInferences";
 
 export { StatsAggregator }
 
@@ -10,10 +11,12 @@ class StatsAggregator {
     private getStatsSource() {
         let onlinesStats = new OnlinesStats();
         let timeSeries = new TimeSeries();
+        let statisticalInferences = new StatisticalInferences();
 
         return [
             onlinesStats,
-            timeSeries
+            timeSeries,
+            statisticalInferences
         ];
     }
 
@@ -49,6 +52,15 @@ class StatsAggregator {
     }
 
 }
+
+// async function test() {
+//     let g = new StatsAggregator();
+//     let d = await g.getData().catch(console.error);
+
+//     console.log(d);
+// }
+
+// test();
 
 // async function test() {
 //     console.log((new Date()).toString());
